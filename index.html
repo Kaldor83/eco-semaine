@@ -26,7 +26,7 @@ header.tete{display:flex;justify-content:space-between;align-items:flex-end;gap:
 .repere{background:var(--carte);border:1px solid var(--trait);border-radius:8px;padding:15px 16px 13px;display:flex;flex-direction:column;min-height:195px}
 .repere-haut{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:9px}
 .chiffre{font-size:34px;line-height:.95;letter-spacing:-.03em;white-space:nowrap}
-.notion-badge{font-family:var(--sans);font-size:10px;font-weight:750;color:var(--sauge-fonce);background:var(--sauge-pale);padding:5px 7px;border-radius:999px;text-align:right}
+.notion-badge{font-family:var(--sans);font-size:9.5px;line-height:1.15;font-weight:750;color:var(--sauge-fonce);background:var(--sauge-pale);padding:5px 7px;border-radius:999px;text-align:right;max-width:48%}
 .repere h3{font-size:17px;line-height:1.2;margin:0 0 6px;font-weight:600}
 .explication{margin:0;font-size:13.5px;line-height:1.35;color:#2C3731}
 .question-wrap{margin-top:8px}
@@ -102,7 +102,8 @@ function carteRepere(f,index){
   const rid="r-"+index;
   return '<article class="repere">'+
     '<div class="repere-haut"><div class="chiffre">'+echapper(f.chiffre)+'</div>'+
-    '<div class="notion-badge">'+echapper(f.notion)+'</div></div>'+
+    '<div class="notion-badge" title="'+echapper(f.theme_titre||"")+'">'+
+      echapper((f.theme?f.theme.replace("Thème ","T")+" · ":"")+f.notion)+'</div></div>'+
     '<h3>'+echapper(f.titre)+'</h3>'+
     '<p class="explication">'+echapper(f.explication)+'</p>'+
     (f.question?'<div class="question-wrap" id="'+id+'">'+
@@ -119,7 +120,8 @@ function carteRepere(f,index){
 }
 function carteBreve(f){
   return '<article class="breve">'+
-    '<div class="breve-notion">'+echapper(f.notion)+'</div>'+
+    '<div class="breve-notion" title="'+echapper(f.theme_titre||"")+'">'+
+    echapper((f.theme?f.theme+" · ":"")+f.notion)+'</div>'+
     '<h3>'+echapper(f.titre)+'</h3>'+
     (f.resume?'<p class="breve-resume">'+echapper(f.resume)+'</p>':'')+
     '<div class="breve-meta">'+lienSource(f.source,f.url)+(f.date?' · '+echapper(f.date):'')+'</div>'+

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-L’ÉCO DE LA SEMAINE — V6
+L’ÉCO DE LA SEMAINE — V7
 Objectifs :
 - 2 à 3 repères chiffrés fiables, uniquement à partir de types de publications
   explicitement reconnus ;
@@ -289,6 +289,389 @@ NOTIONS = {
         "reponse": "La décision d’une entreprise dépend souvent de la demande attendue, de ses coûts, du financement disponible et du niveau d’incertitude.",
     },
 }
+
+
+# ---------------------------------------------------------------------------
+# STRUCTURE DU COURS ET BANQUE DE QUESTIONS
+# ---------------------------------------------------------------------------
+
+THEMES = {
+    "Croissance": ("Thème 1", "Produire et mesurer la richesse"),
+    "Production": ("Thème 1", "Produire et mesurer la richesse"),
+    "Productivité": ("Thème 1", "Produire et mesurer la richesse"),
+    "Entreprises": ("Thème 1", "Produire et mesurer la richesse"),
+
+    "Investissement": ("Thème 2", "Investir et financer les projets"),
+    "Taux d’intérêt": ("Thème 2", "Investir et financer les projets"),
+
+    "Inflation": ("Thème 3", "Comprendre l’inflation"),
+    "Pouvoir d’achat": ("Thème 3", "Comprendre l’inflation"),
+    "Énergie": ("Thème 3", "Comprendre l’inflation"),
+
+    "Emploi et chômage": ("Thème 4", "Emploi, chômage et salaires"),
+
+    "Commerce international": ("Thème 5", "Échanges internationaux et compétitivité"),
+
+    "Finances publiques": ("Thème 6", "Politiques économiques"),
+}
+
+
+BANQUE_QUESTIONS = {
+    # ───────────────────── THÈME 1 ─────────────────────
+
+    "Croissance": [
+        (
+            "Quelle différence faut-il faire entre le PIB et la croissance économique ?",
+            "Le PIB mesure la richesse produite sur une période. La croissance mesure l’évolution du PIB en volume entre deux périodes."
+        ),
+        (
+            "Pourquoi additionne-t-on les valeurs ajoutées plutôt que les chiffres d’affaires pour calculer le PIB ?",
+            "Additionner les chiffres d’affaires compterait plusieurs fois les consommations intermédiaires. La valeur ajoutée mesure uniquement la richesse réellement créée par chaque producteur."
+        ),
+        (
+            "Pourquoi distingue-t-on le PIB en valeur du PIB en volume ?",
+            "Le PIB en valeur varie avec les quantités produites mais aussi avec les prix. Le PIB en volume neutralise l’effet des prix pour mesurer l’évolution réelle de la production."
+        ),
+        (
+            "Une hausse du PIB signifie-t-elle nécessairement une amélioration du bien-être ?",
+            "Non. Le PIB mesure la production, pas directement la répartition des revenus, la qualité de vie, les inégalités ou les effets environnementaux."
+        ),
+        (
+            "Quel lien existe entre productivité et croissance économique ?",
+            "Une hausse de la productivité permet de produire davantage avec une même quantité de ressources. Elle peut donc soutenir la croissance à long terme."
+        ),
+        (
+            "Pourquoi une croissance durablement faible peut-elle peser sur l’emploi et l’investissement ?",
+            "Des débouchés moins dynamiques réduisent les besoins de production. Les entreprises peuvent alors limiter leurs recrutements et reporter certains investissements."
+        ),
+    ],
+
+    "Production": [
+        (
+            "Quelle différence existe entre production et valeur ajoutée ?",
+            "La production correspond à la valeur des biens et services produits. La valeur ajoutée retranche les consommations intermédiaires afin de mesurer la richesse créée."
+        ),
+        (
+            "Pourquoi une hausse de la production d’une entreprise n’implique-t-elle pas forcément une hausse équivalente de sa richesse créée ?",
+            "Parce qu’elle peut utiliser davantage de consommations intermédiaires. La richesse créée dépend de la valeur ajoutée, pas seulement du niveau de production."
+        ),
+        (
+            "Comment une baisse durable de la production peut-elle affecter l’emploi ?",
+            "Si les entreprises produisent moins durablement, leurs besoins de travail peuvent diminuer. Elles peuvent alors réduire les recrutements ou les effectifs."
+        ),
+        (
+            "Peut-on produire davantage sans utiliser davantage de travail ou de capital ?",
+            "Oui, si la productivité augmente. Une meilleure organisation, l’innovation ou de nouveaux équipements peuvent permettre de produire davantage avec les mêmes ressources."
+        ),
+    ],
+
+    "Productivité": [
+        (
+            "Que mesure la productivité ?",
+            "Elle rapporte la quantité produite à la quantité de facteurs de production utilisée, par exemple le nombre d’heures de travail."
+        ),
+        (
+            "Pourquoi la productivité est-elle importante pour la croissance à long terme ?",
+            "Elle permet d’augmenter la production sans accroître dans les mêmes proportions le travail ou le capital mobilisé."
+        ),
+        (
+            "Comment l’investissement peut-il améliorer la productivité ?",
+            "De nouveaux équipements, logiciels ou technologies peuvent permettre aux salariés de produire davantage ou plus efficacement."
+        ),
+        (
+            "Une hausse de la productivité entraîne-t-elle automatiquement une hausse des salaires ?",
+            "Non. Elle crée une marge permettant potentiellement d’augmenter les salaires, les profits ou de réduire les prix, mais la répartition dépend des choix et du contexte."
+        ),
+        (
+            "La productivité peut-elle augmenter alors que l’emploi diminue ?",
+            "Oui. Si la production baisse moins vite que le nombre d’heures travaillées, ou si l’organisation devient plus efficace, la productivité peut progresser malgré une baisse de l’emploi."
+        ),
+    ],
+
+    "Entreprises": [
+        (
+            "De quoi dépend principalement la décision d’une entreprise d’augmenter sa production ?",
+            "Elle dépend notamment de la demande anticipée, des capacités disponibles, des coûts de production et de la rentabilité attendue."
+        ),
+        (
+            "Pourquoi une entreprise peut-elle investir alors même que ses capacités actuelles suffisent ?",
+            "Elle peut vouloir réduire ses coûts, améliorer sa productivité, innover, remplacer des équipements ou préparer une hausse future de la demande."
+        ),
+        (
+            "Pourquoi une hausse du chiffre d’affaires ne signifie-t-elle pas nécessairement une hausse du profit ?",
+            "Les coûts peuvent augmenter plus vite que les ventes. Le profit dépend de l’écart entre les recettes et l’ensemble des coûts."
+        ),
+        (
+            "Comment la conjoncture économique influence-t-elle les décisions des entreprises ?",
+            "Elle modifie les perspectives de demande, les coûts, les conditions de financement et le niveau d’incertitude, donc les décisions de production, d’emploi et d’investissement."
+        ),
+    ],
+
+    # ───────────────────── THÈME 2 ─────────────────────
+
+    "Investissement": [
+        (
+            "Qu’est-ce qui distingue un investissement d’une dépense courante ?",
+            "Un investissement acquiert ou améliore un actif destiné à être utilisé durablement. Une dépense courante est consommée dans le fonctionnement habituel."
+        ),
+        (
+            "Pourquoi une entreprise investit-elle ?",
+            "Elle peut augmenter ses capacités, remplacer des équipements, réduire ses coûts, améliorer sa productivité ou développer de nouveaux produits."
+        ),
+        (
+            "Pourquoi l’incertitude peut-elle freiner l’investissement ?",
+            "Un investissement engage des ressources aujourd’hui pour des résultats futurs. Plus ces résultats sont incertains, plus l’entreprise peut préférer attendre."
+        ),
+        (
+            "Quelle différence existe entre financement interne et financement externe ?",
+            "Le financement interne utilise les ressources générées par l’entreprise. Le financement externe fait appel à des prêteurs ou à des apporteurs de capitaux."
+        ),
+        (
+            "Pourquoi le coût du financement influence-t-il le niveau d’investissement ?",
+            "Plus le financement est coûteux, plus la rentabilité minimale exigée d’un projet augmente. Certains investissements deviennent alors moins intéressants."
+        ),
+    ],
+
+    "Taux d’intérêt": [
+        (
+            "Que représente un taux d’intérêt pour un emprunteur ?",
+            "Il représente le prix payé pour disposer temporairement de capitaux empruntés, auquel peuvent s’ajouter d’autres frais de financement."
+        ),
+        (
+            "Pourquoi une hausse des taux d’intérêt peut-elle freiner l’investissement ?",
+            "Elle augmente le coût du crédit et réduit la rentabilité de certains projets financés par emprunt."
+        ),
+        (
+            "Comment les taux d’intérêt peuvent-ils influencer la consommation des ménages ?",
+            "Des taux élevés rendent le crédit plus coûteux et peuvent encourager l’épargne, ce qui tend à freiner certaines dépenses de consommation."
+        ),
+        (
+            "Quel lien existe entre taux directeurs et taux proposés par les banques ?",
+            "Les taux directeurs influencent les conditions auxquelles les banques se financent et placent leurs liquidités, ce qui se transmet en partie aux taux des crédits."
+        ),
+        (
+            "Pourquoi une baisse des taux ne suffit-elle pas toujours à relancer fortement l’investissement ?",
+            "Si les entreprises anticipent une demande faible ou jugent l’avenir très incertain, elles peuvent ne pas investir malgré un financement moins coûteux."
+        ),
+    ],
+
+    # ───────────────────── THÈME 3 ─────────────────────
+
+    "Inflation": [
+        (
+            "Quelle différence existe entre inflation et hausse du prix d’un seul produit ?",
+            "L’inflation correspond à une hausse générale et durable du niveau des prix. La hausse isolée d’un produit ne suffit donc pas à caractériser l’inflation."
+        ),
+        (
+            "Pourquoi un ralentissement de l’inflation ne signifie-t-il pas que les prix baissent ?",
+            "Les prix continuent d’augmenter, mais moins vite. Ils ne diminuent en moyenne que si le taux d’inflation devient négatif."
+        ),
+        (
+            "Comment une hausse des coûts de production peut-elle alimenter l’inflation ?",
+            "Les entreprises peuvent répercuter une partie de la hausse de leurs coûts dans leurs prix de vente, ce qui diffuse la hausse des prix dans l’économie."
+        ),
+        (
+            "Comment une demande très dynamique peut-elle provoquer de l’inflation ?",
+            "Si la demande progresse plus vite que les capacités de production, les entreprises peuvent augmenter leurs prix face aux tensions sur les biens, services et facteurs de production."
+        ),
+        (
+            "Pourquoi l’inflation ne touche-t-elle pas tous les ménages de la même manière ?",
+            "Les ménages n’achètent pas les mêmes biens dans les mêmes proportions. Leur inflation réellement ressentie dépend donc de leur structure de consommation."
+        ),
+        (
+            "Pourquoi les banques centrales cherchent-elles généralement à limiter une inflation trop élevée ?",
+            "Une inflation élevée et instable réduit la visibilité économique, déforme les décisions et peut fortement affecter le pouvoir d’achat et la confiance."
+        ),
+    ],
+
+    "Pouvoir d’achat": [
+        (
+            "Qu’est-ce que le pouvoir d’achat ?",
+            "Il correspond à la quantité de biens et services qu’un revenu permet d’acheter. Il dépend donc à la fois des revenus et des prix."
+        ),
+        (
+            "Pourquoi une hausse du salaire nominal ne garantit-elle pas une hausse du pouvoir d’achat ?",
+            "Si les prix augmentent plus vite que le salaire nominal, le salaire réel et donc le pouvoir d’achat diminuent."
+        ),
+        (
+            "Comment l’inflation peut-elle modifier la consommation des ménages ?",
+            "En réduisant le pouvoir d’achat réel, elle peut conduire les ménages à arbitrer leurs dépenses, réduire certains achats ou puiser dans leur épargne."
+        ),
+        (
+            "Pourquoi l’évolution moyenne du pouvoir d’achat ne décrit-elle pas la situation de chaque ménage ?",
+            "Les revenus, les structures de consommation et les situations familiales diffèrent. Une moyenne nationale masque donc des évolutions individuelles très différentes."
+        ),
+    ],
+
+    "Énergie": [
+        (
+            "Pourquoi le prix de l’énergie peut-il influencer l’inflation générale ?",
+            "L’énergie entre directement dans les dépenses des ménages et indirectement dans de nombreux coûts de production et de transport."
+        ),
+        (
+            "Comment une hausse du coût de l’énergie affecte-t-elle les entreprises ?",
+            "Elle augmente directement ou indirectement leurs coûts. Selon leur pouvoir de marché, elles peuvent réduire leurs marges ou augmenter leurs prix."
+        ),
+        (
+            "Pourquoi une baisse du prix du pétrole ne se transmet-elle pas toujours immédiatement et intégralement aux prix payés par les consommateurs ?",
+            "Les prix finaux comprennent d’autres coûts et taxes, et les contrats ou stocks peuvent retarder la transmission des variations du pétrole."
+        ),
+        (
+            "Pourquoi un choc énergétique peut-il à la fois augmenter les prix et ralentir l’activité ?",
+            "Il augmente les coûts et réduit le pouvoir d’achat, ce qui peut simultanément alimenter l’inflation et freiner la consommation et la production."
+        ),
+    ],
+
+    # ───────────────────── THÈME 4 ─────────────────────
+
+    "Emploi et chômage": [
+        (
+            "Comment définit-on généralement un chômeur au sens du BIT ?",
+            "Il s’agit d’une personne sans emploi, disponible pour travailler et qui recherche activement un emploi, selon les critères statistiques du BIT."
+        ),
+        (
+            "Pourquoi le taux de chômage ne mesure-t-il pas toutes les difficultés du marché du travail ?",
+            "Il ne décrit pas à lui seul le sous-emploi, le temps partiel subi, le découragement ou la qualité des emplois occupés."
+        ),
+        (
+            "Comment une hausse du chômage peut-elle affecter la consommation ?",
+            "Elle réduit les revenus de certains ménages et peut accroître l’épargne de précaution des autres, ce qui tend à freiner la consommation."
+        ),
+        (
+            "Pourquoi une croissance économique plus forte peut-elle réduire le chômage ?",
+            "Si la demande adressée aux entreprises augmente durablement, elles peuvent accroître leur production et leurs besoins de travail."
+        ),
+        (
+            "Quel lien peut exister entre productivité et salaires à long terme ?",
+            "Des gains de productivité augmentent la richesse produite par heure de travail et peuvent créer une marge permettant une progression des salaires réels."
+        ),
+        (
+            "Pourquoi une hausse du salaire minimum peut-elle avoir plusieurs effets économiques possibles ?",
+            "Elle augmente le revenu des salariés concernés mais aussi le coût du travail pour les employeurs. L’effet final dépend notamment de la productivité, de la demande et des possibilités d’ajustement."
+        ),
+    ],
+
+    # ───────────────────── THÈME 5 ─────────────────────
+
+    "Commerce international": [
+        (
+            "Pourquoi les pays échangent-ils des biens et services entre eux ?",
+            "Les échanges permettent de bénéficier de spécialisations, de ressources différentes, d’économies d’échelle et d’une plus grande variété de produits."
+        ),
+        (
+            "Quelle différence existe entre exportations et importations ?",
+            "Les exportations sont les biens et services vendus au reste du monde. Les importations sont ceux achetés au reste du monde."
+        ),
+        (
+            "Qu’est-ce que la balance commerciale ?",
+            "Elle correspond à la différence entre la valeur des exportations et celle des importations de biens sur une période."
+        ),
+        (
+            "Quelle différence existe entre compétitivité-prix et compétitivité hors-prix ?",
+            "La compétitivité-prix repose sur les prix relatifs. La compétitivité hors-prix repose notamment sur la qualité, l’innovation, l’image, les délais ou les services."
+        ),
+        (
+            "Pourquoi une hausse des droits de douane peut-elle affecter les entreprises nationales ?",
+            "Elle renchérit certains produits importés, protège éventuellement certains producteurs, mais peut aussi augmenter le coût des intrants et provoquer des mesures de rétorsion."
+        ),
+        (
+            "Un déficit commercial signifie-t-il nécessairement qu’une économie est en mauvaise santé ?",
+            "Non. Il peut refléter des faiblesses de compétitivité, mais aussi une forte demande intérieure ou des importations d’équipements préparant la production future."
+        ),
+    ],
+
+    # ───────────────────── THÈME 6 ─────────────────────
+
+    "Finances publiques": [
+        (
+            "Quelle différence existe entre déficit public et dette publique ?",
+            "Le déficit est un flux annuel lorsque les dépenses dépassent les recettes. La dette est un stock résultant notamment de l’accumulation des déficits passés."
+        ),
+        (
+            "Pourquoi un ralentissement économique peut-il creuser le déficit public sans nouvelle mesure gouvernementale ?",
+            "Les recettes fiscales ralentissent tandis que certaines dépenses, comme les allocations chômage, peuvent augmenter automatiquement."
+        ),
+        (
+            "Qu’est-ce qu’une politique budgétaire expansionniste ?",
+            "C’est une politique qui cherche à soutenir l’activité par une hausse des dépenses publiques, une baisse des prélèvements ou les deux."
+        ),
+        (
+            "Pourquoi une politique budgétaire expansionniste peut-elle soutenir la croissance ?",
+            "Elle augmente directement ou indirectement la demande adressée aux entreprises, ce qui peut stimuler production, revenus et emploi."
+        ),
+        (
+            "Quel est l’objectif principal d’une politique monétaire restrictive ?",
+            "Elle vise généralement à ralentir la demande et le crédit afin de réduire les tensions inflationnistes."
+        ),
+        (
+            "Pourquoi une politique économique peut-elle produire des effets différents selon la conjoncture ?",
+            "Son efficacité dépend notamment de la confiance, du niveau des taux, des capacités de production, de l’endettement et de la réaction des ménages et des entreprises."
+        ),
+    ],
+}
+
+
+def theme_pour(notion: str):
+    return THEMES.get(notion, ("", ""))
+
+
+def question_reponse_pour(notion: str, now: datetime):
+    """
+    Rotation hebdomadaire déterministe :
+    - même question pour tous les étudiants pendant une semaine ;
+    - question différente la semaine suivante si la notion réapparaît ;
+    - aucun stockage externe nécessaire.
+    """
+    banque = BANQUE_QUESTIONS.get(notion, [])
+
+    if not banque:
+        cfg = NOTIONS.get(notion, {})
+        return cfg.get("question", ""), cfg.get("reponse", "")
+
+    date_locale = now.astimezone(FUSEAU_PARIS).date()
+    semaine_absolue = date_locale.toordinal() // 7
+
+    # Décalage stable pour éviter que toutes les notions utilisent le même rang.
+    decalage = sum(ord(c) for c in notion) % len(banque)
+    indice = (semaine_absolue + decalage) % len(banque)
+
+    return banque[indice]
+
+
+def serialiser_repere(x, now: datetime):
+    theme, theme_titre = theme_pour(x.notion)
+    question, reponse = question_reponse_pour(x.notion, now)
+
+    return {
+        "chiffre": x.chiffre,
+        "unite": unite_repere(x),
+        "titre": titre_repere(x),
+        "explication": NOTIONS[x.notion]["explication"],
+        "notion": x.notion,
+        "theme": theme,
+        "theme_titre": theme_titre,
+        "question": question,
+        "reponse": reponse,
+        "source": x.source,
+        "date": date_fr(x.date),
+        "url": x.url,
+    }
+
+
+def serialiser_breve(x):
+    theme, theme_titre = theme_pour(x.notion)
+
+    return {
+        "titre": x.titre,
+        "resume": x.resume,
+        "notion": x.notion,
+        "theme": theme,
+        "theme_titre": theme_titre,
+        "source": x.source,
+        "date": date_fr(x.date),
+        "url": x.url,
+    }
+
 
 
 # ---------------------------------------------------------------------------
@@ -979,32 +1362,8 @@ def main():
         "periode": periode(now),
         "publie": date_fr(now),
         "sources": sorted({x.source for x in reperes + breves}),
-        "reperes": [
-            {
-                "chiffre": x.chiffre,
-                "unite": unite_repere(x),
-                "titre": titre_repere(x),
-                "explication": NOTIONS[x.notion]["explication"],
-                "notion": x.notion,
-                "question": NOTIONS[x.notion]["question"],
-                "reponse": NOTIONS[x.notion].get("reponse", ""),
-                "source": x.source,
-                "date": date_fr(x.date),
-                "url": x.url,
-            }
-            for x in reperes
-        ],
-        "breves": [
-            {
-                "titre": x.titre,
-                "resume": x.resume,
-                "notion": x.notion,
-                "source": x.source,
-                "date": date_fr(x.date),
-                "url": x.url,
-            }
-            for x in breves
-        ],
+        "reperes": [serialiser_repere(x, now) for x in reperes],
+        "breves": [serialiser_breve(x) for x in breves],
     }
 
     SORTIE.write_text(
