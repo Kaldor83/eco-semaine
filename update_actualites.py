@@ -1,129 +1,935 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
+"""
+L’ÉCO DE LA SEMAINE — V3
+Objectifs :
+- 2 à 3 repères chiffrés fiables, uniquement à partir de types de publications
+  explicitement reconnus ;
+- 3 brèves économiques à portée générale, sans obligation de chiffre ;
+- élimination renforcée des contenus administratifs, trop techniques ou trop sectoriels ;
+- zéro API payante, zéro IA.
+
+Le script écrit actualites.json, consommé par index.html.
+"""
+
 from __future__ import annotations
-import html,json,re,unicodedata
+
+import html
+import json
+import re
+import unicodedata
 from dataclasses import dataclass
-from datetime import datetime,timedelta,timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
+
 import feedparser
-SORTIE=Path('actualites.json'); AGE_MAX_JOURS=10; NB_REPERES_MAX=3; NB_BREVES=3
-SOURCES_REPERES=[
- {'nom':'INSEE','url':'https://www.insee.fr/fr/flux/1','bonus':7},
- {'nom':'Eurostat','url':'https://ec.europa.eu/eurostat/fr/news/euro-indicators?p_p_id=estatsearchportlet_WAR_estatsearchportlet_INSTANCE_OaTpFrwlabNK&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_resource_id=atom&p_p_cacheability=cacheLevelPage&_estatsearchportlet_WAR_estatsearchportlet_INSTANCE_OaTpFrwlabNK_collection=CAT_PREREL&_estatsearchportlet_WAR_estatsearchportlet_INSTANCE_OaTpFrwlabNK_pageNumber=1&_estatsearchportlet_WAR_estatsearchportlet_INSTANCE_OaTpFrwlabNK_pageSize=25&_estatsearchportlet_WAR_estatsearchportlet_INSTANCE_OaTpFrwlabNK_sort=lastUpdateDate','bonus':5}
+
+
+SORTIE = Path("actualites.json")
+AGE_MAX_JOURS = 10
+NB_REPERES_MAX = 3
+NB_BREVES = 3
+
+
+# ---------------------------------------------------------------------------
+# SOURCES
+# ---------------------------------------------------------------------------
+
+SOURCES_REPERES = [
+    {
+        "nom": "INSEE",
+        "url": "https://www.insee.fr/fr/flux/1",
+        "bonus": 8,
+    },
+    {
+        "nom": "Eurostat",
+        "url": (
+            "https://ec.europa.eu/eurostat/fr/news/euro-indicators"
+            "?p_p_id=estatsearchportlet_WAR_estatsearchportlet_INSTANCE_OaTpFrwlabNK"
+            "&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view"
+            "&p_p_resource_id=atom&p_p_cacheability=cacheLevelPage"
+            "&_estatsearchportlet_WAR_estatsearchportlet_INSTANCE_OaTpFrwlabNK_collection=CAT_PREREL"
+            "&_estatsearchportlet_WAR_estatsearchportlet_INSTANCE_OaTpFrwlabNK_pageNumber=1"
+            "&_estatsearchportlet_WAR_estatsearchportlet_INSTANCE_OaTpFrwlabNK_pageSize=25"
+            "&_estatsearchportlet_WAR_estatsearchportlet_INSTANCE_OaTpFrwlabNK_sort=lastUpdateDate"
+        ),
+        "bonus": 6,
+    },
 ]
-SOURCES_BREVES=[
- {'nom':'Ministère de l’Économie','url':'https://www.economie.gouv.fr/rss/toutesactualites','bonus':8},
- {'nom':'DG Trésor','url':'https://www.tresor.economie.gouv.fr/Flux/Atom/Articles/Home','bonus':6},
- {'nom':'BCE','url':'https://www.ecb.europa.eu/rss/press.html','bonus':3}
+
+SOURCES_BREVES = [
+    {
+        "nom": "Ministère de l’Économie",
+        "url": "https://www.economie.gouv.fr/rss/toutesactualites",
+        "bonus": 9,
+    },
+    {
+        "nom": "DG Trésor",
+        "url": "https://www.tresor.economie.gouv.fr/Flux/Atom/Articles/Home",
+        "bonus": 8,
+    },
+    {
+        "nom": "BCE",
+        "url": "https://www.ecb.europa.eu/rss/press.html",
+        "bonus": 3,
+    },
 ]
-NOTIONS={
- 'Croissance':(['pib','gdp','croissance','economic growth','gross domestic product'],9,'La croissance mesure l’évolution de la production de biens et services. Ce repère permet de situer le rythme de l’activité économique.','Que peut provoquer une croissance durablement faible pour les entreprises et l’emploi ?'),
- 'Inflation':(['inflation','prix a la consommation','consumer prices','hicp','ipc'],9,'L’inflation mesure l’évolution générale des prix. Son rythme influence notamment le pouvoir d’achat et les coûts des entreprises.','Pourquoi un ralentissement de l’inflation ne signifie-t-il pas que les prix baissent ?'),
- 'Emploi et chômage':(['chomage','unemployment','emploi','employment','jobless'],9,'L’emploi et le chômage renseignent sur la situation du marché du travail. Ils influencent les revenus, la consommation et l’activité.','Comment une hausse du chômage peut-elle affecter la consommation ?'),
- 'Consommation':(['consommation','depenses des menages','household consumption','retail sales','retail trade','commerce de detail'],8,'La consommation des ménages constitue une composante majeure de la demande. Son évolution peut soutenir ou freiner l’activité.','Pourquoi une baisse de la consommation peut-elle rapidement affecter les entreprises ?'),
- 'Investissement':(['investissement','investment','capital formation','formation brute de capital'],8,'L’investissement permet d’accroître ou de renouveler les capacités de production. Il joue sur l’activité présente et la croissance future.','Pourquoi l’incertitude peut-elle freiner l’investissement des entreprises ?'),
- 'Taux d’intérêt':(["taux d'interet",'interest rate','interest rates','politique monetaire','monetary policy','bce','ecb'],8,'Les taux d’intérêt influencent le coût du crédit. Ils peuvent modifier les décisions de consommation et d’investissement.','Pourquoi une baisse des taux peut-elle encourager l’investissement ?'),
- 'Pouvoir d’achat':(["pouvoir d'achat",'purchasing power','revenu disponible','household income','salaires','wages'],7,'Le pouvoir d’achat dépend des revenus mais aussi de l’évolution des prix. Il conditionne en partie la consommation des ménages.','Pourquoi une hausse du salaire nominal ne garantit-elle pas une hausse du pouvoir d’achat ?'),
- 'Finances publiques':(['dette publique','public debt','government debt','deficit public','government deficit','budget','finances publiques'],7,'Déficit et dette renseignent sur la situation des administrations publiques et sur leurs marges de manœuvre budgétaires.','Pourquoi les finances publiques peuvent-elles se dégrader lorsque l’activité ralentit ?'),
- 'Commerce international':(['exportations','exports','importations','imports','commerce exterieur','international trade','trade','droits de douane','tariffs'],7,'Les échanges internationaux relient l’économie nationale au reste du monde. Ils influencent la production, les prix et les entreprises.','Comment une modification des échanges internationaux peut-elle affecter les entreprises françaises ?'),
- 'Production':(['production industrielle','industrial production','production','industrie','industry','usine','factory'],6,'La production renseigne sur l’activité réalisée dans les différents secteurs. Ses variations donnent une indication sur la conjoncture.','Pourquoi une baisse de la production peut-elle ensuite affecter l’emploi ?'),
- 'Énergie':(['energie','energy','petrole','oil','gaz','gas','electricite','electricity'],5,'L’énergie affecte les dépenses des ménages et les coûts de production. Ses variations peuvent se diffuser au reste de l’économie.','Comment une hausse du coût de l’énergie peut-elle se transmettre aux prix ?'),
- 'Entreprises':(['entreprise','entreprises','company','companies','pme','industrie','industrial','site de production','investissement industriel'],5,'Les décisions des entreprises traduisent concrètement les évolutions de la demande, des coûts, de l’investissement et de l’emploi.','Quel lien peut-on faire entre cette décision et la conjoncture économique ?')
+
+
+# ---------------------------------------------------------------------------
+# GRANDES NOTIONS DU COURS
+# ---------------------------------------------------------------------------
+
+NOTIONS = {
+    "Croissance": {
+        "mots": [
+            "pib", "gdp", "croissance", "economic growth",
+            "gross domestic product", "activité économique"
+        ],
+        "priorite": 10,
+        "explication": (
+            "La croissance mesure l’évolution de la production de biens et services. "
+            "Ce repère permet de situer le rythme de l’activité économique."
+        ),
+        "question": (
+            "Que peut provoquer une croissance durablement faible pour les entreprises et l’emploi ?"
+        ),
+    },
+    "Inflation": {
+        "mots": [
+            "inflation", "prix a la consommation", "prix à la consommation",
+            "consumer prices", "hicp", "ipc"
+        ],
+        "priorite": 10,
+        "explication": (
+            "L’inflation mesure l’évolution générale des prix. "
+            "Son rythme influence notamment le pouvoir d’achat et les coûts des entreprises."
+        ),
+        "question": (
+            "Pourquoi un ralentissement de l’inflation ne signifie-t-il pas que les prix baissent ?"
+        ),
+    },
+    "Emploi et chômage": {
+        "mots": [
+            "chomage", "chômage", "unemployment", "emploi", "employment",
+            "jobless", "marché du travail"
+        ],
+        "priorite": 10,
+        "explication": (
+            "L’emploi et le chômage renseignent sur la situation du marché du travail. "
+            "Ils influencent les revenus, la consommation et l’activité."
+        ),
+        "question": (
+            "Comment une hausse du chômage peut-elle affecter la consommation ?"
+        ),
+    },
+    "Consommation": {
+        "mots": [
+            "consommation", "depenses des menages", "dépenses des ménages",
+            "household consumption", "retail sales", "retail trade",
+            "commerce de detail", "commerce de détail"
+        ],
+        "priorite": 9,
+        "explication": (
+            "La consommation des ménages constitue une composante majeure de la demande. "
+            "Son évolution peut soutenir ou freiner l’activité."
+        ),
+        "question": (
+            "Pourquoi une baisse de la consommation peut-elle rapidement affecter les entreprises ?"
+        ),
+    },
+    "Investissement": {
+        "mots": [
+            "investissement", "investment", "capital formation",
+            "formation brute de capital", "investit", "investir"
+        ],
+        "priorite": 9,
+        "explication": (
+            "L’investissement permet d’accroître ou de renouveler les capacités de production. "
+            "Il joue sur l’activité présente et la croissance future."
+        ),
+        "question": (
+            "Pourquoi l’incertitude peut-elle freiner l’investissement des entreprises ?"
+        ),
+    },
+    "Taux d’intérêt": {
+        "mots": [
+            "taux d'interet", "taux d’intérêt", "interest rate", "interest rates",
+            "politique monetaire", "politique monétaire", "monetary policy",
+            "taux directeur"
+        ],
+        "priorite": 9,
+        "explication": (
+            "Les taux d’intérêt influencent le coût du crédit. "
+            "Ils peuvent modifier les décisions de consommation et d’investissement."
+        ),
+        "question": (
+            "Pourquoi une baisse des taux peut-elle encourager l’investissement ?"
+        ),
+    },
+    "Pouvoir d’achat": {
+        "mots": [
+            "pouvoir d'achat", "pouvoir d’achat", "purchasing power",
+            "revenu disponible", "household income", "salaires", "wages"
+        ],
+        "priorite": 8,
+        "explication": (
+            "Le pouvoir d’achat dépend des revenus mais aussi de l’évolution des prix. "
+            "Il conditionne en partie la consommation des ménages."
+        ),
+        "question": (
+            "Pourquoi une hausse du salaire nominal ne garantit-elle pas une hausse du pouvoir d’achat ?"
+        ),
+    },
+    "Finances publiques": {
+        "mots": [
+            "dette publique", "public debt", "government debt",
+            "deficit public", "déficit public", "government deficit",
+            "budget", "finances publiques"
+        ],
+        "priorite": 8,
+        "explication": (
+            "Déficit et dette renseignent sur la situation des administrations publiques "
+            "et sur leurs marges de manœuvre budgétaires."
+        ),
+        "question": (
+            "Pourquoi les finances publiques peuvent-elles se dégrader lorsque l’activité ralentit ?"
+        ),
+    },
+    "Commerce international": {
+        "mots": [
+            "exportations", "exports", "importations", "imports",
+            "commerce exterieur", "commerce extérieur", "international trade",
+            "trade", "droits de douane", "tariffs", "balance commerciale"
+        ],
+        "priorite": 8,
+        "explication": (
+            "Les échanges internationaux relient l’économie nationale au reste du monde. "
+            "Ils influencent la production, les prix et les entreprises."
+        ),
+        "question": (
+            "Comment une modification des échanges internationaux peut-elle affecter les entreprises françaises ?"
+        ),
+    },
+    "Production": {
+        "mots": [
+            "production industrielle", "industrial production",
+            "production manufacturiere", "production manufacturière",
+            "manufacturing production"
+        ],
+        "priorite": 7,
+        "explication": (
+            "La production renseigne sur l’activité réalisée dans les différents secteurs. "
+            "Ses variations donnent une indication sur la conjoncture."
+        ),
+        "question": (
+            "Pourquoi une baisse de la production peut-elle ensuite affecter l’emploi ?"
+        ),
+    },
+    "Productivité": {
+        "mots": [
+            "productivite", "productivité", "productivity",
+            "productivite horaire", "productivité horaire",
+            "productivity growth"
+        ],
+        "priorite": 8,
+        "explication": (
+            "La productivité mesure la quantité de richesse produite à partir des ressources mobilisées. "
+            "Elle joue un rôle central dans la croissance à long terme et les niveaux de vie."
+        ),
+        "question": (
+            "Pourquoi une progression plus faible de la productivité peut-elle freiner la croissance à long terme ?"
+        ),
+    },
+    "Énergie": {
+        "mots": [
+            "energie", "énergie", "energy", "petrole", "pétrole", "oil",
+            "gaz", "gas", "electricite", "électricité", "electricity"
+        ],
+        "priorite": 5,
+        "explication": (
+            "L’énergie affecte les dépenses des ménages et les coûts de production. "
+            "Ses variations peuvent se diffuser au reste de l’économie."
+        ),
+        "question": (
+            "Comment une hausse du coût de l’énergie peut-elle se transmettre aux prix ?"
+        ),
+    },
+    "Entreprises": {
+        "mots": [
+            "entreprise", "entreprises", "company", "companies", "pme",
+            "site industriel", "site de production", "investissement industriel",
+            "fermeture d'usine", "fermeture d’usine", "ouverture d'usine",
+            "ouverture d’usine"
+        ],
+        "priorite": 6,
+        "explication": (
+            "Les décisions des entreprises traduisent concrètement les évolutions "
+            "de la demande, des coûts, de l’investissement et de l’emploi."
+        ),
+        "question": (
+            "Quel lien peut-on faire entre cette décision et la conjoncture économique ?"
+        ),
+    },
 }
-EXCLUSIONS=['nomination','recrutement','concours','agenda','colloque','webinaire','seminaire','appel a candidatures','marches publics','bulletin officiel','organisation du ministere']
-MOIS=['','janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre']
+
+
+# ---------------------------------------------------------------------------
+# REPÈRES : LISTE BLANCHE STRICTE
+# ---------------------------------------------------------------------------
+
+# On ne retient un repère que si le titre correspond clairement à un type
+# d'indicateur économique défini ici.
+REPERES_AUTORISES = [
+    {
+        "notion": "Croissance",
+        "obligatoires": ["pib", "gdp", "gross domestic product"],
+        "interdits": ["prix", "price"],
+        "libelle": "variation du PIB",
+    },
+    {
+        "notion": "Inflation",
+        "obligatoires": ["inflation", "prix a la consommation", "consumer prices", "hicp", "ipc"],
+        "interdits": ["prix de production", "producer prices", "prix agricoles"],
+        "libelle": "inflation",
+    },
+    {
+        "notion": "Emploi et chômage",
+        "obligatoires": ["chomage", "unemployment", "taux de chomage"],
+        "interdits": [],
+        "libelle": "taux de chômage",
+    },
+    {
+        "notion": "Consommation",
+        "obligatoires": [
+            "consommation des menages", "household consumption",
+            "retail trade", "retail sales", "commerce de detail"
+        ],
+        "interdits": ["prix"],
+        "libelle": "évolution de la consommation",
+    },
+    {
+        "notion": "Production",
+        "obligatoires": [
+            "production industrielle", "industrial production",
+            "production manufacturiere", "manufacturing production"
+        ],
+        "interdits": [
+            "prix de production", "producer prices", "production prices",
+            "prix agricoles", "prix a la production", "prix à la production"
+        ],
+        "libelle": "évolution de la production",
+    },
+    {
+        "notion": "Finances publiques",
+        "obligatoires": [
+            "deficit public", "government deficit", "dette publique",
+            "government debt", "public debt"
+        ],
+        "interdits": [],
+        "libelle": "finances publiques",
+    },
+]
+
+# Éliminations supplémentaires, même si un mot-clé autorisé est présent.
+EXCLUSIONS_REPERES = [
+    "prix de production",
+    "producer prices",
+    "production prices",
+    "prix agricoles",
+    "agricultural prices",
+    "indice du cout",
+    "indice du coût",
+    "cost index",
+    "cout du travail",
+    "coût du travail",
+    "labour cost",
+    "prix d'importation",
+    "prix d’importation",
+    "import prices",
+    "prix d'exportation",
+    "prix d’exportation",
+    "export prices",
+]
+
+
+# ---------------------------------------------------------------------------
+# BRÈVES : FILTRE ÉDITORIAL
+# ---------------------------------------------------------------------------
+
+EXCLUSIONS_BREVES = [
+    # administratif
+    "nomination", "nomme ", "nommée ", "recrutement", "concours",
+    "agenda", "colloque", "webinaire", "seminaire", "séminaire",
+    "appel a candidatures", "appel à candidatures",
+    "appel a manifestation", "appel à manifestation",
+    "marches publics", "marchés publics",
+    "bulletin officiel",
+    "organisation du ministere", "organisation du ministère",
+    "consultation publique", "concertation publique",
+    "procedure de selection", "procédure de sélection",
+    "selection des organismes", "sélection des organismes",
+    "organismes certificateurs", "organisme certificateur",
+    "habilitation", "habilites a", "habilités à",
+    "audit de second niveau", "audits de second niveau",
+    "certification des organismes", "accreditation", "accréditation",
+    "liste des operateurs", "liste des opérateurs",
+    "avis de vacance", "avis de recrutement",
+
+    # trop technique / réglementaire pour un bulletin L1
+    "arrete du", "arrêté du", "decret du", "décret du",
+    "instruction technique", "cahier des charges",
+    "modalites de depot", "modalités de dépôt",
+]
+
+# Bonus pour des événements à portée générale et pédagogiquement exploitables.
+EVENEMENTS_BONUS = {
+    "reforme": 5, "réforme": 5,
+    "entre en vigueur": 5,
+    "entrée en vigueur": 5,
+    "annonce": 4,
+    "accord": 4,
+    "adopte": 4,
+    "adoption": 4,
+    "decision": 4,
+    "décision": 4,
+    "investit": 5,
+    "investissement": 4,
+    "ouvre": 4,
+    "ouverture": 4,
+    "ferme": 5,
+    "fermeture": 5,
+    "emploi": 4,
+    "licenciement": 5,
+    "recrutement massif": 4,
+    "budget": 4,
+    "impot": 4,
+    "impôt": 4,
+    "droits de douane": 5,
+    "tarifs douaniers": 5,
+    "industrie": 3,
+    "entreprise": 3,
+    "productivite": 5,
+    "productivité": 5,
+    "numerique": 4,
+    "numérique": 4,
+    "intelligence artificielle": 4,
+    "ia ": 3,
+    "croissance": 4,
+    "inflation": 4,
+    "chomage": 4,
+    "chômage": 4,
+    "consommation": 4,
+    "exportations": 4,
+    "importations": 4,
+    "energie": 3,
+    "énergie": 3,
+}
+
+# Certains termes signalent des sujets très micro-sectoriels.
+PENALITES_BREVES = {
+    "biocarburants": -6,
+    "certificateurs": -8,
+    "certification": -5,
+    "audit": -4,
+    "norme technique": -5,
+    "reglement delegue": -5,
+    "règlement délégué": -5,
+}
+
+
+MOIS_FR = [
+    "", "janvier", "février", "mars", "avril", "mai", "juin",
+    "juillet", "août", "septembre", "octobre", "novembre", "décembre"
+]
+
+
 @dataclass
-class Item: source:str; titre:str; resume:str; url:str; date:datetime; notion:str; score:int; chiffre:str=''; zone:str=''
-def na(s):
- s=unicodedata.normalize('NFKD',s or ''); return ''.join(c for c in s if not unicodedata.combining(c))
-def norm(s): return na(html.unescape(s or '')).lower()
-def clean(s): return re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',html.unescape(s or ''))).strip()
-def dt_entry(e)->Optional[datetime]:
- for k in ('published_parsed','updated_parsed','created_parsed'):
-  v=getattr(e,k,None)
-  if v:return datetime(*v[:6],tzinfo=timezone.utc)
- return None
-def date_fr(d): return f'{d.day} {MOIS[d.month]} {d.year}'
-def periode(now):
- d=now.astimezone(); l=d-timedelta(days=d.weekday()); di=l+timedelta(days=6)
- return f'Semaine du {l.day} au {di.day} {MOIS[di.month]} {di.year}' if l.month==di.month else f'Semaine du {l.day} {MOIS[l.month]} au {di.day} {MOIS[di.month]} {di.year}'
-def classer(txt):
- t=norm(txt); scores={}
- for n,(mots,p,_,_) in NOTIONS.items():
-  s=sum(5 for m in mots if norm(m) in t)
-  if s:scores[n]=s+p
- return (max(scores,key=scores.get),max(scores.values())) if scores else (None,0)
-def pct(titre):
- m=re.search(r'(?<!\d)([+\-−]?\s*\d+(?:[.,]\d+)?)\s*%',titre)
- return (re.sub(r'\s+','',m.group(1)).replace('−','-').replace('.',',')+' %') if m else ''
-def zone(txt,source):
- t=norm(txt)
- if source=='INSEE' or 'france' in t:return 'France'
- if 'euro area' in t or 'zone euro' in t:return 'zone euro'
- if 'european union' in t or re.search(r'\beu\b',t):return 'Union européenne'
- return 'Europe'
-def titre_rep(x):
- z,c=x.zone,x.chiffre
- return {'Croissance':f'Le PIB évolue en {z} : {c}','Inflation':f'L’inflation s’établit à {c} en {z}','Emploi et chômage':f'Le chômage s’établit à {c} en {z}','Consommation':f'La consommation évolue de {c} en {z}','Production':f'La production évolue de {c} en {z}','Finances publiques':f'Un indicateur de finances publiques atteint {c} en {z}'}.get(x.notion,x.titre)
-def unite(x): return f"{ {'Croissance':'variation du PIB','Inflation':'inflation','Emploi et chômage':'taux de chômage','Consommation':'évolution de la consommation','Production':'évolution de la production','Finances publiques':'finances publiques'}.get(x.notion,x.notion.lower())}, {x.zone}"
-def feed(cfg):
- f=feedparser.parse(cfg['url'],request_headers={'User-Agent':'EcoSemaine/2.0','Accept':'application/rss+xml, application/atom+xml, application/xml, text/xml, */*'})
- if getattr(f,'bozo',False) and not f.entries: print('[WARN]',cfg['nom'],getattr(f,'bozo_exception','')); return []
- return f.entries
-def reperes(now):
- out=[]; lim=now-timedelta(days=AGE_MAX_JOURS); admis={'Croissance','Inflation','Emploi et chômage','Consommation','Production','Finances publiques'}
- for cfg in SOURCES_REPERES:
-  for e in feed(cfg):
-   d=dt_entry(e); titre=clean(getattr(e,'title',''))
-   if not d or d<lim:continue
-   n,s=classer(titre); c=pct(titre)
-   if n not in admis or not c:continue
-   out.append(Item(cfg['nom'],titre,'',getattr(e,'link','') or '',d,n,s+cfg['bonus']+max(0,5-(now-d).days),c,zone(titre,cfg['nom'])))
- out.sort(key=lambda x:(x.score,x.date),reverse=True); ch=[]; ns=set(); ss={}
- for x in out:
-  if x.notion in ns or ss.get(x.source,0)>=2:continue
-  ch.append(x);ns.add(x.notion);ss[x.source]=ss.get(x.source,0)+1
-  if len(ch)>=NB_REPERES_MAX:break
- return ch
-def resumer(txt,maxm=42):
- txt=clean(txt)
- if not txt:return ''
- phrases=re.split(r'(?<=[.!?])\s+',txt); out=''
- for p in phrases:
-  test=(out+' '+p).strip()
-  if len(test.split())>maxm:break
-  out=test
-  if len(out.split())>=18:break
- if out:return out
- m=txt.split(); return ' '.join(m[:maxm])+('…' if len(m)>maxm else '')
-def breves(now):
- out=[];lim=now-timedelta(days=AGE_MAX_JOURS)
- for cfg in SOURCES_BREVES:
-  for e in feed(cfg):
-   d=dt_entry(e)
-   if not d or d<lim:continue
-   t=clean(getattr(e,'title','')); r=clean(getattr(e,'summary','') or getattr(e,'description','')); bloc=t+' '+r; nb=norm(bloc)
-   if any(norm(x) in nb for x in EXCLUSIONS) or len(t)<20:continue
-   n,s=classer(bloc)
-   if not n:continue
-   bonus=sum(2 for m in ['annonce','accord','decision','investit','investissement','ouvre','ferme','fermeture','hausse','baisse','reforme','tarif','droits de douane','industrie','emploi','entreprise','budget','export'] if norm(m) in nb)
-   out.append(Item(cfg['nom'],t,resumer(r),getattr(e,'link','') or '',d,n,s+cfg['bonus']+max(0,5-(now-d).days)+bonus))
- out.sort(key=lambda x:(x.score,x.date),reverse=True); ch=[];urls=set();ns={};ss={}
- for x in out:
-  if x.url in urls or ns.get(x.notion,0)>=1 or ss.get(x.source,0)>=2:continue
-  ch.append(x);urls.add(x.url);ns[x.notion]=1;ss[x.source]=ss.get(x.source,0)+1
-  if len(ch)>=NB_BREVES:return ch
- for x in out:
-  if x in ch or x.url in urls or ss.get(x.source,0)>=2:continue
-  ch.append(x);urls.add(x.url);ss[x.source]=ss.get(x.source,0)+1
-  if len(ch)>=NB_BREVES:break
- return ch
+class Item:
+    source: str
+    titre: str
+    resume: str
+    url: str
+    date: datetime
+    notion: str
+    score: int
+    chiffre: str = ""
+    zone: str = ""
+    libelle: str = ""
+
+
+# ---------------------------------------------------------------------------
+# OUTILS TEXTE
+# ---------------------------------------------------------------------------
+
+def sans_accents(s: str) -> str:
+    s = unicodedata.normalize("NFKD", s or "")
+    return "".join(c for c in s if not unicodedata.combining(c))
+
+
+def norm(s: str) -> str:
+    return sans_accents(html.unescape(s or "")).lower()
+
+
+def nettoyer_html(s: str) -> str:
+    s = html.unescape(s or "")
+    s = re.sub(r"<[^>]+>", " ", s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def date_entree(entry) -> Optional[datetime]:
+    for champ in ("published_parsed", "updated_parsed", "created_parsed"):
+        v = getattr(entry, champ, None)
+        if v:
+            return datetime(*v[:6], tzinfo=timezone.utc)
+    return None
+
+
+def date_fr(dt: datetime) -> str:
+    return f"{dt.day} {MOIS_FR[dt.month]} {dt.year}"
+
+
+def periode(now: datetime) -> str:
+    d = now.astimezone()
+    lundi = d - timedelta(days=d.weekday())
+    dimanche = lundi + timedelta(days=6)
+
+    if lundi.month == dimanche.month:
+        return (
+            f"Semaine du {lundi.day} au {dimanche.day} "
+            f"{MOIS_FR[dimanche.month]} {dimanche.year}"
+        )
+
+    return (
+        f"Semaine du {lundi.day} {MOIS_FR[lundi.month]} "
+        f"au {dimanche.day} {MOIS_FR[dimanche.month]} {dimanche.year}"
+    )
+
+
+def classer(texte: str):
+    t = norm(texte)
+    scores = {}
+
+    for notion, cfg in NOTIONS.items():
+        score = 0
+        for mot in cfg["mots"]:
+            if norm(mot) in t:
+                score += 5
+
+        if score:
+            scores[notion] = score + cfg["priorite"]
+
+    if not scores:
+        return None, 0
+
+    notion = max(scores, key=scores.get)
+    return notion, scores[notion]
+
+
+def premier_pourcentage(titre: str) -> str:
+    # Repères : jamais de chiffre extrait du résumé.
+    m = re.search(r"(?<!\d)([+\-−]?\s*\d+(?:[.,]\d+)?)\s*%", titre)
+    if not m:
+        return ""
+
+    v = re.sub(r"\s+", "", m.group(1))
+    v = v.replace("−", "-").replace(".", ",")
+    return v + " %"
+
+
+def detecter_zone(texte: str, source: str) -> str:
+    t = norm(texte)
+
+    if source == "INSEE" or "france" in t:
+        return "France"
+
+    if "euro area" in t or "zone euro" in t:
+        return "zone euro"
+
+    if (
+        "european union" in t
+        or "union europeenne" in t
+        or "union européenne" in texte.lower()
+    ):
+        return "Union européenne"
+
+    return "Europe"
+
+
+def resume_breve(texte: str, max_mots: int = 42) -> str:
+    texte = nettoyer_html(texte)
+    if not texte:
+        return ""
+
+    phrases = re.split(r"(?<=[.!?])\s+", texte)
+
+    sortie = ""
+    for p in phrases:
+        tentative = (sortie + " " + p).strip()
+        if len(tentative.split()) > max_mots:
+            break
+
+        sortie = tentative
+
+        if len(sortie.split()) >= 18:
+            break
+
+    if sortie:
+        return sortie
+
+    mots = texte.split()
+    return " ".join(mots[:max_mots]) + ("…" if len(mots) > max_mots else "")
+
+
+def lire_flux(cfg):
+    f = feedparser.parse(
+        cfg["url"],
+        request_headers={
+            "User-Agent": "EcoSemaine/3.0",
+            "Accept": (
+                "application/rss+xml, application/atom+xml, "
+                "application/xml, text/xml, */*"
+            ),
+        },
+    )
+
+    if getattr(f, "bozo", False) and not f.entries:
+        print(
+            f"[AVERTISSEMENT] {cfg['nom']} inaccessible : "
+            f"{getattr(f, 'bozo_exception', '')}"
+        )
+        return []
+
+    return f.entries
+
+
+# ---------------------------------------------------------------------------
+# REPÈRES
+# ---------------------------------------------------------------------------
+
+def type_repere_autorise(titre: str):
+    t = norm(titre)
+
+    if any(norm(x) in t for x in EXCLUSIONS_REPERES):
+        return None
+
+    for regle in REPERES_AUTORISES:
+        obligatoires = [norm(x) for x in regle["obligatoires"]]
+        interdits = [norm(x) for x in regle["interdits"]]
+
+        if not any(x in t for x in obligatoires):
+            continue
+
+        if any(x in t for x in interdits):
+            continue
+
+        return regle
+
+    return None
+
+
+def candidats_reperes(now: datetime):
+    limite = now - timedelta(days=AGE_MAX_JOURS)
+    resultats = []
+
+    for cfg in SOURCES_REPERES:
+        try:
+            entries = lire_flux(cfg)
+        except Exception as e:
+            print(f"[ERREUR] {cfg['nom']} : {e}")
+            continue
+
+        for e in entries:
+            dt = date_entree(e)
+            if not dt or dt < limite:
+                continue
+
+            titre = nettoyer_html(getattr(e, "title", ""))
+            url = getattr(e, "link", "") or ""
+
+            regle = type_repere_autorise(titre)
+            if not regle:
+                continue
+
+            chiffre = premier_pourcentage(titre)
+            if not chiffre:
+                continue
+
+            notion = regle["notion"]
+            zone = detecter_zone(titre, cfg["nom"])
+
+            # Score simple et transparent.
+            score = (
+                NOTIONS[notion]["priorite"]
+                + cfg["bonus"]
+                + max(0, 5 - (now - dt).days)
+            )
+
+            resultats.append(
+                Item(
+                    source=cfg["nom"],
+                    titre=titre,
+                    resume="",
+                    url=url,
+                    date=dt,
+                    notion=notion,
+                    score=score,
+                    chiffre=chiffre,
+                    zone=zone,
+                    libelle=regle["libelle"],
+                )
+            )
+
+    return resultats
+
+
+def choisir_reperes(items):
+    items = sorted(items, key=lambda x: (x.score, x.date), reverse=True)
+
+    choisis = []
+    notions = set()
+    sources = {}
+
+    for x in items:
+        if x.notion in notions:
+            continue
+
+        if sources.get(x.source, 0) >= 2:
+            continue
+
+        choisis.append(x)
+        notions.add(x.notion)
+        sources[x.source] = sources.get(x.source, 0) + 1
+
+        if len(choisis) >= NB_REPERES_MAX:
+            break
+
+    return choisis
+
+
+def titre_repere(item: Item) -> str:
+    n, z, c = item.notion, item.zone, item.chiffre
+
+    if n == "Croissance":
+        return f"Le PIB évolue de {c} en {z}"
+
+    if n == "Inflation":
+        return f"L’inflation s’établit à {c} en {z}"
+
+    if n == "Emploi et chômage":
+        return f"Le chômage s’établit à {c} en {z}"
+
+    if n == "Consommation":
+        return f"La consommation évolue de {c} en {z}"
+
+    if n == "Production":
+        return f"La production industrielle évolue de {c} en {z}"
+
+    if n == "Finances publiques":
+        return f"Un indicateur de finances publiques atteint {c} en {z}"
+
+    return item.titre
+
+
+def unite_repere(item: Item) -> str:
+    return f"{item.libelle}, {item.zone}"
+
+
+# ---------------------------------------------------------------------------
+# BRÈVES
+# ---------------------------------------------------------------------------
+
+def score_evenement(texte: str) -> int:
+    t = norm(texte)
+    score = 0
+
+    for mot, bonus in EVENEMENTS_BONUS.items():
+        if norm(mot) in t:
+            score += bonus
+
+    for mot, penalite in PENALITES_BREVES.items():
+        if norm(mot) in t:
+            score += penalite
+
+    return score
+
+
+def candidats_breves(now: datetime):
+    limite = now - timedelta(days=AGE_MAX_JOURS)
+    resultats = []
+
+    for cfg in SOURCES_BREVES:
+        try:
+            entries = lire_flux(cfg)
+        except Exception as e:
+            print(f"[ERREUR] {cfg['nom']} : {e}")
+            continue
+
+        for e in entries:
+            dt = date_entree(e)
+            if not dt or dt < limite:
+                continue
+
+            titre = nettoyer_html(getattr(e, "title", ""))
+            resume = nettoyer_html(
+                getattr(e, "summary", "")
+                or getattr(e, "description", "")
+            )
+            url = getattr(e, "link", "") or ""
+
+            bloc = f"{titre} {resume}"
+            nt = norm(bloc)
+
+            # Exclusion forte : si l'un de ces motifs est présent, on rejette.
+            if any(norm(x) in nt for x in EXCLUSIONS_BREVES):
+                continue
+
+            if len(titre) < 20:
+                continue
+
+            notion, score = classer(bloc)
+            if not notion:
+                continue
+
+            score += cfg["bonus"]
+            score += max(0, 5 - (now - dt).days)
+            score += score_evenement(bloc)
+
+            # On exige un minimum d'intérêt éditorial.
+            if score < 15:
+                continue
+
+            resultats.append(
+                Item(
+                    source=cfg["nom"],
+                    titre=titre,
+                    resume=resume_breve(resume),
+                    url=url,
+                    date=dt,
+                    notion=notion,
+                    score=score,
+                )
+            )
+
+    return resultats
+
+
+def choisir_breves(items):
+    items = sorted(items, key=lambda x: (x.score, x.date), reverse=True)
+
+    choisis = []
+    urls = set()
+    notions = {}
+    sources = {}
+
+    # Première passe : 3 notions différentes, max 2 brèves par source.
+    for x in items:
+        if x.url and x.url in urls:
+            continue
+
+        if notions.get(x.notion, 0) >= 1:
+            continue
+
+        if sources.get(x.source, 0) >= 2:
+            continue
+
+        choisis.append(x)
+
+        if x.url:
+            urls.add(x.url)
+
+        notions[x.notion] = notions.get(x.notion, 0) + 1
+        sources[x.source] = sources.get(x.source, 0) + 1
+
+        if len(choisis) >= NB_BREVES:
+            break
+
+    # Seconde passe : on relâche uniquement la diversité des notions.
+    if len(choisis) < NB_BREVES:
+        for x in items:
+            if x in choisis:
+                continue
+
+            if x.url and x.url in urls:
+                continue
+
+            if sources.get(x.source, 0) >= 2:
+                continue
+
+            choisis.append(x)
+
+            if x.url:
+                urls.add(x.url)
+
+            sources[x.source] = sources.get(x.source, 0) + 1
+
+            if len(choisis) >= NB_BREVES:
+                break
+
+    return choisis
+
+
+# ---------------------------------------------------------------------------
+# SORTIE
+# ---------------------------------------------------------------------------
+
 def main():
- now=datetime.now(timezone.utc); rs=reperes(now); bs=breves(now)
- if not rs and not bs:raise SystemExit("Aucune information exploitable : actualites.json n'est pas remplacé.")
- doc={'periode':periode(now),'publie':date_fr(now.astimezone()),'sources':sorted({x.source for x in rs+bs}),
- 'reperes':[{'chiffre':x.chiffre,'unite':unite(x),'titre':titre_rep(x),'explication':NOTIONS[x.notion][2],'notion':x.notion,'question':NOTIONS[x.notion][3],'source':x.source,'date':date_fr(x.date.astimezone()),'url':x.url} for x in rs],
- 'breves':[{'titre':x.titre,'resume':x.resume,'notion':x.notion,'source':x.source,'date':date_fr(x.date.astimezone()),'url':x.url} for x in bs]}
- SORTIE.write_text(json.dumps(doc,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');print(f'[OK] {len(rs)} repère(s), {len(bs)} brève(s)')
-if __name__=='__main__':main()
+    now = datetime.now(timezone.utc)
+
+    reperes = choisir_reperes(candidats_reperes(now))
+    breves = choisir_breves(candidats_breves(now))
+
+    if not reperes and not breves:
+        raise SystemExit(
+            "Aucune information exploitable : actualites.json n'est pas remplacé."
+        )
+
+    doc = {
+        "periode": periode(now),
+        "publie": date_fr(now.astimezone()),
+        "sources": sorted({x.source for x in reperes + breves}),
+        "reperes": [
+            {
+                "chiffre": x.chiffre,
+                "unite": unite_repere(x),
+                "titre": titre_repere(x),
+                "explication": NOTIONS[x.notion]["explication"],
+                "notion": x.notion,
+                "question": NOTIONS[x.notion]["question"],
+                "source": x.source,
+                "date": date_fr(x.date.astimezone()),
+                "url": x.url,
+            }
+            for x in reperes
+        ],
+        "breves": [
+            {
+                "titre": x.titre,
+                "resume": x.resume,
+                "notion": x.notion,
+                "source": x.source,
+                "date": date_fr(x.date.astimezone()),
+                "url": x.url,
+            }
+            for x in breves
+        ],
+    }
+
+    SORTIE.write_text(
+        json.dumps(doc, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+    print(f"[OK] {len(reperes)} repère(s), {len(breves)} brève(s)")
+
+    for x in reperes:
+        print(f"REPÈRE [{x.notion}] {x.source} — {x.titre}")
+
+    for x in breves:
+        print(f"BRÈVE  [{x.notion}] {x.source} — {x.titre}")
+
+
+if __name__ == "__main__":
+    main()
