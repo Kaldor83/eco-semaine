@@ -1,0 +1,56 @@
+{
+  "periode": "Semaine de démonstration",
+  "publie": "1 septembre 2026",
+  "sources": [
+    "INSEE",
+    "Eurostat",
+    "BCE",
+    "Banque de France"
+  ],
+  "faits": [
+    {
+      "chiffre": "+0,3 %",
+      "unite": "exemple de variation du PIB",
+      "titre": "L’activité économique progresse légèrement",
+      "explication": "Une hausse du PIB signifie que la production totale de biens et services augmente. L’ampleur de cette progression permet d’apprécier le rythme de l’activité économique.",
+      "notion": "Croissance",
+      "question": "Une croissance faible signifie-t-elle nécessairement que l’économie va mal ?",
+      "source": "Donnée de démonstration",
+      "date": "1 septembre 2026",
+      "url": ""
+    },
+    {
+      "chiffre": "2,1 %",
+      "unite": "exemple d’inflation sur un an",
+      "titre": "La hausse générale des prix reste modérée",
+      "explication": "L’inflation mesure l’évolution moyenne des prix. Elle influence notamment le pouvoir d’achat des ménages et les coûts supportés par les entreprises.",
+      "notion": "Inflation",
+      "question": "Pourquoi une inflation plus faible ne signifie-t-elle pas que les prix baissent ?",
+      "source": "Donnée de démonstration",
+      "date": "1 septembre 2026",
+      "url": ""
+    },
+    {
+      "chiffre": "7,5 %",
+      "unite": "exemple de taux de chômage",
+      "titre": "Le marché du travail demeure sous surveillance",
+      "explication": "Le taux de chômage mesure la part des actifs sans emploi qui en recherchent un. Son évolution renseigne sur la situation du marché du travail et sur la conjoncture.",
+      "notion": "Emploi et chômage",
+      "question": "Par quels mécanismes une hausse du chômage peut-elle affecter la consommation ?",
+      "source": "Donnée de démonstration",
+      "date": "1 septembre 2026",
+      "url": ""
+    },
+    {
+      "chiffre": "2,0 %",
+      "unite": "exemple de taux directeur",
+      "titre": "Les taux d’intérêt influencent les décisions économiques",
+      "explication": "Le niveau des taux agit sur le coût du crédit. Il peut donc modifier les décisions d’emprunt, de consommation et d’investissement des ménages et des entreprises.",
+      "notion": "Taux d’intérêt",
+      "question": "Pourquoi une baisse des taux peut-elle encourager l’investissement ?",
+      "source": "Donnée de démonstration",
+      "date": "1 septembre 2026",
+      "url": ""
+    }
+  ]
+}
