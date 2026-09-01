@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-L’ÉCO DE LA SEMAINE — V4
+L’ÉCO DE LA SEMAINE — V6
 Objectifs :
 - 2 à 3 repères chiffrés fiables, uniquement à partir de types de publications
   explicitement reconnus ;
@@ -98,6 +98,7 @@ NOTIONS = {
         "question": (
             "Que peut provoquer une croissance durablement faible pour les entreprises et l’emploi ?"
         ),
+        "reponse": "Une croissance durablement faible réduit généralement les débouchés des entreprises, freine l’investissement et peut limiter les créations d’emplois.",
     },
     "Inflation": {
         "mots": [
@@ -112,6 +113,7 @@ NOTIONS = {
         "question": (
             "Pourquoi un ralentissement de l’inflation ne signifie-t-il pas que les prix baissent ?"
         ),
+        "reponse": "Les prix continuent d’augmenter, mais moins vite. Ils ne baissent que si l’inflation devient négative.",
     },
     "Emploi et chômage": {
         "mots": [
@@ -126,6 +128,7 @@ NOTIONS = {
         "question": (
             "Comment une hausse du chômage peut-elle affecter la consommation ?"
         ),
+        "reponse": "Une hausse du chômage tend à réduire la consommation, car elle diminue les revenus de certains ménages et renforce souvent l’épargne de précaution.",
     },
     "Consommation": {
         "mots": [
@@ -141,6 +144,7 @@ NOTIONS = {
         "question": (
             "Pourquoi une baisse de la consommation peut-elle rapidement affecter les entreprises ?"
         ),
+        "reponse": "Une baisse de la consommation réduit les ventes des entreprises, qui peuvent alors diminuer leur production, leurs investissements ou leurs recrutements.",
     },
     "Investissement": {
         "mots": [
@@ -155,6 +159,7 @@ NOTIONS = {
         "question": (
             "Pourquoi l’incertitude peut-elle freiner l’investissement des entreprises ?"
         ),
+        "reponse": "L’incertitude pousse les entreprises à reporter certains projets, car leurs ventes futures et la rentabilité attendue deviennent plus difficiles à prévoir.",
     },
     "Taux d’intérêt": {
         "mots": [
@@ -170,6 +175,7 @@ NOTIONS = {
         "question": (
             "Pourquoi une baisse des taux peut-elle encourager l’investissement ?"
         ),
+        "reponse": "Des taux plus bas réduisent le coût du crédit. Certains projets d’investissement deviennent alors plus rentables et plus faciles à financer.",
     },
     "Pouvoir d’achat": {
         "mots": [
@@ -184,6 +190,7 @@ NOTIONS = {
         "question": (
             "Pourquoi une hausse du salaire nominal ne garantit-elle pas une hausse du pouvoir d’achat ?"
         ),
+        "reponse": "Parce que le pouvoir d’achat dépend aussi des prix. Si les prix augmentent plus vite que le salaire, le pouvoir d’achat recule.",
     },
     "Finances publiques": {
         "mots": [
@@ -199,6 +206,7 @@ NOTIONS = {
         "question": (
             "Pourquoi les finances publiques peuvent-elles se dégrader lorsque l’activité ralentit ?"
         ),
+        "reponse": "Quand l’activité ralentit, les recettes fiscales progressent moins vite tandis que certaines dépenses, notamment sociales, peuvent augmenter.",
     },
     "Commerce international": {
         "mots": [
@@ -214,6 +222,7 @@ NOTIONS = {
         "question": (
             "Comment une modification des échanges internationaux peut-elle affecter les entreprises françaises ?"
         ),
+        "reponse": "Une modification des échanges peut changer les débouchés, les coûts d’approvisionnement et la concurrence auxquels les entreprises françaises sont confrontées.",
     },
     "Production": {
         "mots": [
@@ -229,6 +238,7 @@ NOTIONS = {
         "question": (
             "Pourquoi une baisse de la production peut-elle ensuite affecter l’emploi ?"
         ),
+        "reponse": "Une baisse durable de la production réduit les besoins de travail. Les entreprises peuvent alors limiter les recrutements ou supprimer des emplois.",
     },
     "Productivité": {
         "mots": [
@@ -244,6 +254,7 @@ NOTIONS = {
         "question": (
             "Pourquoi une progression plus faible de la productivité peut-elle freiner la croissance à long terme ?"
         ),
+        "reponse": "Une productivité moins dynamique limite la hausse de la production potentielle, des salaires réels et, à long terme, du niveau de vie.",
     },
     "Énergie": {
         "mots": [
@@ -258,6 +269,7 @@ NOTIONS = {
         "question": (
             "Comment une hausse du coût de l’énergie peut-elle se transmettre aux prix ?"
         ),
+        "reponse": "Une hausse du coût de l’énergie augmente les coûts de production et de transport, que les entreprises peuvent ensuite répercuter partiellement dans leurs prix.",
     },
     "Entreprises": {
         "mots": [
@@ -274,6 +286,7 @@ NOTIONS = {
         "question": (
             "Quel lien peut-on faire entre cette décision et la conjoncture économique ?"
         ),
+        "reponse": "La décision d’une entreprise dépend souvent de la demande attendue, de ses coûts, du financement disponible et du niveau d’incertitude.",
     },
 }
 
@@ -974,6 +987,7 @@ def main():
                 "explication": NOTIONS[x.notion]["explication"],
                 "notion": x.notion,
                 "question": NOTIONS[x.notion]["question"],
+                "reponse": NOTIONS[x.notion].get("reponse", ""),
                 "source": x.source,
                 "date": date_fr(x.date),
                 "url": x.url,

@@ -34,6 +34,19 @@ header.tete{display:flex;justify-content:space-between;align-items:flex-end;gap:
 .question-bouton:hover{text-decoration:underline}
 .question-texte{display:none;margin:6px 0 0;padding:7px 9px;background:rgba(111,139,115,.08);border-radius:5px;font-size:12px;line-height:1.3;font-style:italic}
 .question-wrap.ouvert .question-texte{display:block}
+.reponse-zone{display:none;margin-top:7px}
+.question-wrap.ouvert .reponse-zone{display:block}
+.reponse-bouton{
+  border:0;padding:0;background:none;font-family:var(--sans);
+  font-size:10px;font-weight:700;color:var(--sauge-fonce);cursor:pointer
+}
+.reponse-bouton:hover{text-decoration:underline}
+.reponse-texte{
+  display:none;margin:6px 0 0;padding:8px 9px;
+  background:var(--sauge-pale);border-radius:5px;
+  font-size:12px;line-height:1.32;font-style:normal;color:var(--encre)
+}
+.reponse-zone.ouverte .reponse-texte{display:block}
 .repere-bas{margin-top:auto;display:flex;justify-content:space-between;gap:10px;padding-top:8px;border-top:1px solid var(--sauge-pale)}
 .unite,.source{font-family:var(--sans);font-size:10px;line-height:1.2;color:var(--encre-clair)}
 .unite{max-width:55%}.source{text-align:right}
@@ -86,12 +99,20 @@ function afficherEtat(t){
 }
 function carteRepere(f,index){
   const id="q-"+index;
+  const rid="r-"+index;
   return '<article class="repere">'+
     '<div class="repere-haut"><div class="chiffre">'+echapper(f.chiffre)+'</div>'+
     '<div class="notion-badge">'+echapper(f.notion)+'</div></div>'+
     '<h3>'+echapper(f.titre)+'</h3>'+
     '<p class="explication">'+echapper(f.explication)+'</p>'+
-    (f.question?'<div class="question-wrap" id="'+id+'"><button class="question-bouton" type="button" onclick="basculerQuestion(\''+id+'\',this)">+ Question pour le cours</button><p class="question-texte">'+echapper(f.question)+'</p></div>':'')+
+    (f.question?'<div class="question-wrap" id="'+id+'">'+
+      '<button class="question-bouton" type="button" onclick="basculerQuestion(\''+id+'\',this)">+ Question pour le cours</button>'+
+      '<p class="question-texte">'+echapper(f.question)+'</p>'+
+      (f.reponse?'<div class="reponse-zone" id="'+rid+'">'+
+        '<button class="reponse-bouton" type="button" onclick="basculerReponse(\''+rid+'\',this)">+ Voir la réponse</button>'+
+        '<p class="reponse-texte"><strong>Réponse :</strong> '+echapper(f.reponse)+'</p>'+
+      '</div>':'')+
+    '</div>':'')+
     '<div class="repere-bas"><div class="unite">'+echapper(f.unite)+'</div>'+
     '<div class="source">'+lienSource(f.source,f.url)+(f.date?' · '+echapper(f.date):'')+'</div></div>'+
   '</article>';
@@ -108,6 +129,11 @@ function basculerQuestion(id,bouton){
   const bloc=document.getElementById(id);
   bloc.classList.toggle("ouvert");
   bouton.textContent=bloc.classList.contains("ouvert")?"− Masquer la question":"+ Question pour le cours";
+}
+function basculerReponse(id,bouton){
+  const bloc=document.getElementById(id);
+  bloc.classList.toggle("ouverte");
+  bouton.textContent=bloc.classList.contains("ouverte")?"− Masquer la réponse":"+ Voir la réponse";
 }
 function afficherBulletin(b){
   const reperes=b.reperes||[], breves=b.breves||[];
