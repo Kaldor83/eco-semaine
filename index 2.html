@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L’éco de la semaine</title>
+<style>
+:root{
+  --papier:#F1F4F0; --carte:#F8FAF7; --encre:#1C2621; --encre-clair:#617067;
+  --sauge:#6F8B73; --sauge-fonce:#58705D; --sauge-pale:#DCE6DB; --trait:#C8D2C7;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box} html,body{margin:0;padding:0}
+body{background:var(--papier);color:var(--encre);font-family:var(--serif);font-size:16px;line-height:1.4}
+.page{max-width:1120px;margin:0 auto;padding:24px 26px 30px}
+header.tete{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding-bottom:12px;border-bottom:1.5px solid var(--encre)}
+.titre{margin:0;font-size:37px;line-height:1;font-weight:400;letter-spacing:-.02em}
+.titre em{font-style:italic;color:var(--sauge)}
+.periode{font-family:var(--sans);font-size:12px;color:var(--encre-clair);white-space:nowrap}
+.chapeau{margin:10px 0 17px;font-family:var(--sans);font-size:12.5px;color:var(--encre-clair)}
+.section-entete{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 0 8px}
+.section-titre{margin:0;font-family:var(--sans);font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sauge-fonce)}
+.section-note{margin:0;font-family:var(--sans);font-size:11px;color:var(--encre-clair)}
+.reperes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:20px}
+.repere{background:var(--carte);border:1px solid var(--trait);border-radius:8px;padding:15px 16px 13px;display:flex;flex-direction:column;min-height:195px}
+.repere-haut{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:9px}
+.chiffre{font-size:34px;line-height:.95;letter-spacing:-.03em;white-space:nowrap}
+.notion-badge{font-family:var(--sans);font-size:10px;font-weight:750;color:var(--sauge-fonce);background:var(--sauge-pale);padding:5px 7px;border-radius:999px;text-align:right}
+.repere h3{font-size:17px;line-height:1.2;margin:0 0 6px;font-weight:600}
+.explication{margin:0;font-size:13.5px;line-height:1.35;color:#2C3731}
+.question-wrap{margin-top:8px}
+.question-bouton{border:0;padding:0;background:none;font-family:var(--sans);font-size:10px;color:var(--sauge-fonce);cursor:pointer}
+.question-bouton:hover{text-decoration:underline}
+.question-texte{display:none;margin:6px 0 0;padding:7px 9px;background:rgba(111,139,115,.08);border-radius:5px;font-size:12px;line-height:1.3;font-style:italic}
+.question-wrap.ouvert .question-texte{display:block}
+.repere-bas{margin-top:auto;display:flex;justify-content:space-between;gap:10px;padding-top:8px;border-top:1px solid var(--sauge-pale)}
+.unite,.source{font-family:var(--sans);font-size:10px;line-height:1.2;color:var(--encre-clair)}
+.unite{max-width:55%}.source{text-align:right}
+.source a,.breve-meta a{color:var(--sauge-fonce);text-decoration:none;border-bottom:1px solid var(--sauge-pale)}
+.breves{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.breve{border-top:2px solid var(--sauge);padding:10px 3px 4px 0;display:flex;flex-direction:column;min-height:135px}
+.breve-notion{margin-bottom:5px;font-family:var(--sans);font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--sauge-fonce)}
+.breve h3{margin:0 0 5px;font-size:15.5px;line-height:1.22;font-weight:600}
+.breve-resume{margin:0;font-size:13px;line-height:1.32;color:#303A34}
+.breve-meta{margin-top:auto;padding-top:7px;font-family:var(--sans);font-size:10px;color:var(--encre-clair)}
+footer.pied{margin-top:18px;padding-top:9px;border-top:1px solid var(--trait);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;color:var(--encre-clair)}
+.etat{padding:30px 0;font-family:var(--sans);color:var(--encre-clair)}
+@media (max-width:900px){.reperes,.breves{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){
+  .page{padding:18px 14px 24px}.tete{align-items:flex-start!important;flex-direction:column;gap:6px!important}
+  .titre{font-size:31px}.periode{white-space:normal}.section-entete{display:block}.section-note{margin-top:2px}
+  .reperes,.breves{grid-template-columns:1fr}.repere{min-height:auto}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="tete">
+    <h1 class="titre">L’éco de <em>la semaine</em></h1>
+    <div class="periode" id="periode"></div>
+  </header>
+
+  <p class="chapeau">Trois repères pour situer la conjoncture, trois brèves pour suivre l’actualité économique.</p>
+
+  <main id="contenu"><div class="etat">Lecture du bulletin…</div></main>
+
+  <footer class="pied">
+    <span id="signature"></span>
+    <span id="sourceInfo"></span>
+  </footer>
+</div>
+
+<script>
+function echapper(s){
+  return String(s == null ? "" : s)
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+function lienSource(source,url){
+  const s=echapper(source||"");
+  if(!url) return s;
+  return '<a href="'+echapper(url)+'" target="_blank" rel="noopener noreferrer">'+s+'</a>';
+}
+function afficherEtat(t){
+  document.getElementById("contenu").innerHTML='<div class="etat">'+echapper(t)+'</div>';
+}
+function carteRepere(f,index){
+  const id="q-"+index;
+  return '<article class="repere">'+
+    '<div class="repere-haut"><div class="chiffre">'+echapper(f.chiffre)+'</div>'+
+    '<div class="notion-badge">'+echapper(f.notion)+'</div></div>'+
+    '<h3>'+echapper(f.titre)+'</h3>'+
+    '<p class="explication">'+echapper(f.explication)+'</p>'+
+    (f.question?'<div class="question-wrap" id="'+id+'"><button class="question-bouton" type="button" onclick="basculerQuestion(\''+id+'\',this)">+ Question pour le cours</button><p class="question-texte">'+echapper(f.question)+'</p></div>':'')+
+    '<div class="repere-bas"><div class="unite">'+echapper(f.unite)+'</div>'+
+    '<div class="source">'+lienSource(f.source,f.url)+(f.date?' · '+echapper(f.date):'')+'</div></div>'+
+  '</article>';
+}
+function carteBreve(f){
+  return '<article class="breve">'+
+    '<div class="breve-notion">'+echapper(f.notion)+'</div>'+
+    '<h3>'+echapper(f.titre)+'</h3>'+
+    (f.resume?'<p class="breve-resume">'+echapper(f.resume)+'</p>':'')+
+    '<div class="breve-meta">'+lienSource(f.source,f.url)+(f.date?' · '+echapper(f.date):'')+'</div>'+
+  '</article>';
+}
+function basculerQuestion(id,bouton){
+  const bloc=document.getElementById(id);
+  bloc.classList.toggle("ouvert");
+  bouton.textContent=bloc.classList.contains("ouvert")?"− Masquer la question":"+ Question pour le cours";
+}
+function afficherBulletin(b){
+  const reperes=b.reperes||[], breves=b.breves||[];
+  document.getElementById("periode").textContent=b.periode||"";
+  let h="";
+  if(reperes.length){
+    h+='<section><div class="section-entete"><h2 class="section-titre">Les repères de la semaine</h2><p class="section-note">Les chiffres à retenir</p></div>'+
+       '<div class="reperes">'+reperes.map(carteRepere).join("")+'</div></section>';
+  }
+  if(breves.length){
+    h+='<section><div class="section-entete"><h2 class="section-titre">En bref</h2><p class="section-note">Les faits économiques à connaître</p></div>'+
+       '<div class="breves">'+breves.map(carteBreve).join("")+'</div></section>';
+  }
+  if(!h){afficherEtat("Aucune information disponible cette semaine.");return;}
+  document.getElementById("contenu").innerHTML=h;
+  document.getElementById("signature").textContent=b.publie?"Bulletin établi le "+b.publie:"";
+  document.getElementById("sourceInfo").textContent=b.sources?"Sources : "+b.sources.join(" · "):"";
+}
+async function demarrer(){
+  try{
+    const r=await fetch("actualites.json",{cache:"no-store"});
+    if(!r.ok) throw new Error("actualites.json inaccessible");
+    afficherBulletin(await r.json());
+  }catch(e){console.error(e);afficherEtat("Le bulletin ne peut pas être chargé.");}
+}
+demarrer();
+</script>
+</body>
+</html>
