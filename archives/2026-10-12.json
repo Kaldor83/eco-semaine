@@ -2,7 +2,7 @@
   "periode": "Semaine du 12 au 18 octobre 2026",
   "publie": "12 octobre 2026",
   "archive_reconstituee": true,
-  "note_archive": "Archive reconstituée à partir des traces de publication GitHub disponibles. Les principaux repères et sujets sont conservés, mais les textes détaillés d’origine ne sont plus disponibles.",
+  "note_archive": "Archive reconstituée à partir des traces de publication et des sources officielles disponibles. Les titres correspondent aux sujets diffusés ; les explications courtes ont été reconstituées à partir des sources d’origine.",
   "sources": [
     "DG Trésor",
     "Eurostat",
@@ -56,33 +56,33 @@
   "breves": [
     {
       "titre": "Facturation électronique : trois entreprises sur quatre déjà engagées dans la réforme",
-      "resume": "",
+      "resume": "Un mois après le lancement de la réforme, 75 % des entreprises assujetties à la TVA ont désigné une plateforme de réception. Environ 20 millions de factures ont déjà été échangées, mais des difficultés subsistent sur les logiciels et l’interopérabilité.",
       "notion": "Entreprises",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
       "source": "Ministère de l’Économie",
       "date": "",
-      "url": ""
+      "url": "https://www.economie.gouv.fr/actualites/facturation-electronique-trois-entreprises-sur-quatre-deja-engagees-dans-la-reforme"
     },
     {
       "titre": "Publication du rapport économique, social et financier (RESF) 2027",
-      "resume": "",
+      "resume": "Le RESF présente les prévisions économiques associées au budget 2027. Le Gouvernement anticipe une croissance de 0,5 % en 2026 puis de 1,0 % en 2027, principalement soutenue par la demande intérieure.",
       "notion": "Finances publiques",
       "theme": "Thème 6",
       "theme_titre": "Politiques économiques",
       "source": "DG Trésor",
       "date": "",
-      "url": ""
+      "url": "https://www.tresor.economie.gouv.fr/Articles/2026/10/06/le-rapport-economique-social-et-financier-resf-2027-est-publie"
     },
     {
       "titre": "Bercy Vert : le nouveau bilan carbone de Bercy identifie les principaux leviers de transformation écologique",
-      "resume": "",
+      "resume": "Le bilan carbone des ministères économiques et financiers montre que les achats représentent 42 % des émissions, les mobilités 33 % et les bâtiments 15 %. L’objectif est de concentrer les efforts sur ces principaux postes et de réduire durablement l’empreinte carbone.",
       "notion": "Énergie",
       "theme": "Thème 3",
       "theme_titre": "Comprendre l’inflation",
       "source": "Ministère de l’Économie",
       "date": "",
-      "url": ""
+      "url": "https://www.economie.gouv.fr/actualites/bercy-vert-le-nouveau-bilan-carbone-de-bercy-identifie-les-principaux-leviers-de-transformation-ecologique"
     }
   ]
 }

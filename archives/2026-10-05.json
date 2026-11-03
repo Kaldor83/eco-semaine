@@ -2,7 +2,7 @@
   "periode": "Semaine du 5 au 11 octobre 2026",
   "publie": "5 octobre 2026",
   "archive_reconstituee": true,
-  "note_archive": "Archive reconstituée à partir des traces de publication GitHub disponibles. Les principaux repères et sujets sont conservés, mais les textes détaillés d’origine ne sont plus disponibles.",
+  "note_archive": "Archive reconstituée à partir des traces de publication et des sources officielles disponibles. Les titres correspondent aux sujets diffusés ; les explications courtes ont été reconstituées à partir des sources d’origine.",
   "sources": [
     "BCE",
     "Eurostat",
@@ -56,33 +56,33 @@
   "breves": [
     {
       "titre": "Entreprises : vos principales échéances du mois",
-      "resume": "",
+      "resume": "Le ministère récapitule les principales échéances fiscales et sociales d’octobre pour les entreprises : TVA, impôt sur les sociétés, déclaration sociale nominative et versements à l’Urssaf.",
       "notion": "Entreprises",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
       "source": "Ministère de l’Économie",
       "date": "",
-      "url": ""
+      "url": "https://www.economie.gouv.fr/entreprises/gerer-sa-fiscalite-et-ses-impots/limpot-sur-les-benefices-ir-et/entreprises-vos-principales-echeances-du-mois"
     },
     {
       "titre": "Decisions taken by the Governing Council of the ECB (in addition to decisions setting interest rates)",
-      "resume": "",
+      "resume": "La BCE publie les principales décisions de son Conseil des gouverneurs hors fixation des taux : projet d’euro numérique, infrastructures de paiement, cadre opérationnel de politique monétaire, supervision et stabilité financière.",
       "notion": "Taux d’intérêt",
       "theme": "Thème 2",
       "theme_titre": "Investir et financer les projets",
       "source": "BCE",
       "date": "",
-      "url": ""
+      "url": "https://www.ecb.europa.eu/press/govcdec/otherdec/2026/html/ecb.gc261002~54c6b5672b.en.html"
     },
     {
       "titre": "Présentation du projet de budget pour 2027",
-      "resume": "",
+      "resume": "Le projet de budget 2027 vise à redresser les comptes publics tout en maintenant les dépenses prioritaires et les investissements d’avenir. Il comprend le projet de loi de finances et celui de financement de la Sécurité sociale.",
       "notion": "Investissement",
       "theme": "Thème 2",
       "theme_titre": "Investir et financer les projets",
       "source": "Ministère de l’Économie",
       "date": "",
-      "url": ""
+      "url": "https://www.economie.gouv.fr/actualites/video-presentation-du-projet-de-budget-pour-2027"
     }
   ]
 }

@@ -2,7 +2,7 @@
   "periode": "Semaine du 21 au 27 septembre 2026",
   "publie": "21 septembre 2026",
   "archive_reconstituee": true,
-  "note_archive": "Archive reconstituée à partir des traces de publication GitHub disponibles. Les principaux repères et sujets sont conservés, mais les textes détaillés d’origine ne sont plus disponibles.",
+  "note_archive": "Archive reconstituée à partir des traces de publication et des sources officielles disponibles. Les titres correspondent aux sujets diffusés ; les explications courtes ont été reconstituées à partir des sources d’origine.",
   "sources": [
     "DG Trésor",
     "Eurostat",
@@ -42,33 +42,33 @@
   "breves": [
     {
       "titre": "Changement climatique, transition écologique et croissance potentielle",
-      "resume": "",
+      "resume": "La DG Trésor analyse les effets du changement climatique et de la transition bas-carbone sur les trois moteurs de la croissance potentielle : le travail, le capital et la productivité. Elle étudie notamment le rôle des investissements de décarbonation et de la R&D.",
       "notion": "Productivité",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
       "source": "DG Trésor",
       "date": "",
-      "url": ""
+      "url": "https://www.tresor.economie.gouv.fr/Articles/2026/09/14/changement-climatique-transition-ecologique-et-croissance-potentielle"
     },
     {
       "titre": "Finances publiques : une situation dégradée, un redressement nécessaire",
-      "resume": "",
+      "resume": "En 2025, le déficit public français atteint 5,1 % du PIB et la dette 115,7 %. La DG Trésor souligne la nécessité d’un redressement afin de restaurer des marges budgétaires et de stabiliser la trajectoire de dette.",
       "notion": "Finances publiques",
       "theme": "Thème 6",
       "theme_titre": "Politiques économiques",
       "source": "DG Trésor",
       "date": "",
-      "url": ""
+      "url": "https://www.tresor.economie.gouv.fr/Articles/2026/09/21/finances-publiques-une-situation-degradee-un-redressement-necessaire"
     },
     {
       "titre": "Semaine de l’industrie : ouverture des labellisations pour la 15e édition",
-      "resume": "",
+      "resume": "La Semaine de l’industrie 2026 doit faire découvrir les métiers et besoins de recrutement du secteur. Les entreprises industrielles prévoient près de 212 000 recrutements en 2026, dont environ 48 % sont jugés difficiles.",
       "notion": "Entreprises",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
       "source": "Ministère de l’Économie",
       "date": "",
-      "url": ""
+      "url": "https://www.economie.gouv.fr/actualites/semaine-de-lindustrie-ouverture-des-labellisations-pour-la-15e-edition"
     }
   ]
 }

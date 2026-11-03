@@ -2,7 +2,7 @@
   "periode": "Semaine du 19 au 25 octobre 2026",
   "publie": "19 octobre 2026",
   "archive_reconstituee": true,
-  "note_archive": "Archive reconstituée à partir des traces de publication GitHub disponibles. Les principaux repères et sujets sont conservés, mais les textes détaillés d’origine ne sont plus disponibles.",
+  "note_archive": "Archive reconstituée à partir des traces de publication et des sources officielles disponibles. Les titres correspondent aux sujets diffusés ; les explications courtes ont été reconstituées à partir des sources d’origine.",
   "sources": [
     "DG Trésor",
     "Eurostat",
@@ -55,33 +55,33 @@
   "breves": [
     {
       "titre": "Micro-tendu le 20 octobre à l’issue du conseil des entreprises exceptionnel",
-      "resume": "",
+      "resume": "Après les dégradations et pillages des 17 et 18 octobre, le Gouvernement réunit les représentants des entreprises, commerçants, banques et assurances. Des mesures de soutien sont annoncées pour protéger l’emploi et la trésorerie des commerces touchés.",
       "notion": "Entreprises",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
       "source": "Ministère de l’Économie",
       "date": "",
-      "url": ""
+      "url": "https://www.economie.gouv.fr/actualites/videodes-mesures-de-soutien-pour-les-commercants-touches-par-les-degradations"
     },
     {
       "titre": "Participation du public sur la demande de permis de recherches de géothermie de Bois d’Arcy (Yvelines), à la société ENGIE Énergie Services SAS",
-      "resume": "",
+      "resume": "ENGIE demande un permis de recherche de géothermie profonde dans les Yvelines. Le projet vise à évaluer le potentiel du sous-sol pour alimenter des réseaux de chauffage urbain et fait l’objet d’une consultation publique.",
       "notion": "Énergie",
       "theme": "Thème 3",
       "theme_titre": "Comprendre l’inflation",
       "source": "Ministère de l’Économie",
       "date": "",
-      "url": ""
+      "url": "https://www.economie.gouv.fr/actualites/participation-du-public-sur-la-demande-de-permis-de-recherches-de-geothermie-de-bois-darcy-yvelines-la-societe-engie-energie-services-sas"
     },
     {
       "titre": "Le financement des investissements dans les infrastructures de transport",
-      "resume": "",
+      "resume": "Les grands projets de transport recensés en 2026 représentent environ 81 milliards d’euros d’investissements. Dans un contexte budgétaire contraint, la DG Trésor insiste sur la nécessité de prioriser les projets selon leur utilité socio-économique.",
       "notion": "Investissement",
       "theme": "Thème 2",
       "theme_titre": "Investir et financer les projets",
       "source": "DG Trésor",
       "date": "",
-      "url": ""
+      "url": "https://www.tresor.economie.gouv.fr/Articles/2026/10/15/le-financement-des-investissements-dans-les-infrastructures-de-transport"
     }
   ]
 }

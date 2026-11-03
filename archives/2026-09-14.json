@@ -2,7 +2,7 @@
   "periode": "Semaine du 14 au 20 septembre 2026",
   "publie": "14 septembre 2026",
   "archive_reconstituee": true,
-  "note_archive": "Archive reconstituée à partir des traces de publication GitHub disponibles. Les principaux repères et sujets sont conservés, mais les textes détaillés d’origine ne sont plus disponibles.",
+  "note_archive": "Archive reconstituée à partir des traces de publication et des sources officielles disponibles. Les titres correspondent aux sujets diffusés ; les explications courtes ont été reconstituées à partir des sources d’origine.",
   "sources": [
     "DG Trésor",
     "Eurostat",
@@ -42,33 +42,33 @@
   "breves": [
     {
       "titre": "Changement climatique, transition écologique et croissance potentielle",
-      "resume": "",
+      "resume": "La DG Trésor analyse les effets du changement climatique et de la transition bas-carbone sur les trois moteurs de la croissance potentielle : le travail, le capital et la productivité. Elle étudie notamment le rôle des investissements de décarbonation et de la R&D.",
       "notion": "Productivité",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
       "source": "DG Trésor",
       "date": "",
-      "url": ""
+      "url": "https://www.tresor.economie.gouv.fr/Articles/2026/09/14/changement-climatique-transition-ecologique-et-croissance-potentielle"
     },
     {
       "titre": "Le Gouvernement prend des mesures d’économies de 1,3 milliard d’euros sur le budget 2026",
-      "resume": "",
+      "resume": "Pour financer de nouvelles mesures de soutien au secteur agricole sans aggraver le déficit, le Gouvernement annonce 1,3 milliard d’euros d’économies supplémentaires sur le budget 2026, via des annulations et des gels de crédits.",
       "notion": "Finances publiques",
       "theme": "Thème 6",
       "theme_titre": "Politiques économiques",
       "source": "Ministère de l’Économie",
       "date": "",
-      "url": ""
+      "url": "https://www.economie.gouv.fr/actualites/video-le-gouvernement-prend-des-mesures-deconomies-de-13-milliard-deuros-sur-le-budget-2026"
     },
     {
       "titre": "Flash Conjoncture Pays avancés - La croissance économique au Royaume-Uni a surpris à la hausse au 1er semestre",
-      "resume": "",
+      "resume": "L’économie britannique a progressé de 0,6 % au premier trimestre puis de 0,4 % au deuxième. La consommation des ménages et l’investissement des entreprises ont soutenu une activité plus dynamique qu’attendu.",
       "notion": "Entreprises",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
       "source": "DG Trésor",
       "date": "",
-      "url": ""
+      "url": "https://www.tresor.economie.gouv.fr/Articles/2026/09/11/flash-conjoncture-pays-avances-la-croissance-economique-au-royaume-uni-a-surpris-a-la-hausse-au-1er-semestre"
     }
   ]
 }
