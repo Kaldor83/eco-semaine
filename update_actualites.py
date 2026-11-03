@@ -1373,9 +1373,17 @@ def archiver_bulletin(doc, now: datetime):
     )
 
     archives = []
+    annee_courante = date_locale.year
     for p in sorted(ARCHIVES_DIR.glob("*.json"), reverse=True):
         if p.name == "index.json" or p == archive_path:
             continue
+
+        # L'interface étudiante ne propose que les archives de l'année en cours.
+        # Les années antérieures restent conservées dans GitHub, mais ne sont
+        # plus exposées dans le sélecteur public.
+        if not p.stem.startswith(f"{annee_courante}-"):
+            continue
+
         try:
             ancien = json.loads(p.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
@@ -1399,6 +1407,14 @@ def archiver_bulletin(doc, now: datetime):
 
 def main():
     now = datetime.now(timezone.utc)
+    mois_local = now.astimezone(FUSEAU_PARIS).month
+
+    # La veille correspond au semestre 1 : elle fonctionne uniquement
+    # de septembre à décembre. Hors de cette période, le script ne modifie
+    # ni le bulletin courant ni les archives.
+    if mois_local not in (9, 10, 11, 12):
+        print("[INFO] Veille suspendue : fonctionnement limité de septembre à décembre.")
+        return
 
     reperes = choisir_reperes(candidats_reperes(now))
     breves = choisir_breves(candidats_breves(now))
@@ -1409,6 +1425,7 @@ def main():
         )
 
     doc = {
+        "annee": now.astimezone(FUSEAU_PARIS).year,
         "periode": periode(now),
         "publie": date_fr(now),
         "sources": sorted({x.source for x in reperes + breves}),
