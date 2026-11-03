@@ -23,6 +23,7 @@ header.tete{display:flex;justify-content:space-between;align-items:flex-end;gap:
 .archives-bar[hidden]{display:none}
 .archives-bar label{font-weight:650}
 .archives-bar select{max-width:320px;padding:6px 8px;border:1px solid var(--trait);border-radius:6px;background:var(--carte);color:var(--encre);font:inherit}
+.archive-note{margin:0 0 16px;padding:9px 11px;border-left:3px solid var(--trait);background:rgba(111,139,115,.07);font-family:var(--sans);font-size:10.5px;line-height:1.35;color:var(--encre-clair)}
 .section-entete{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 0 8px}
 .section-titre{margin:0;font-family:var(--sans);font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sauge-fonce)}
 .section-note{margin:0;font-family:var(--sans);font-size:11px;color:var(--encre-clair)}
@@ -152,6 +153,9 @@ function afficherBulletin(b){
   const reperes=b.reperes||[], breves=b.breves||[];
   document.getElementById("periode").textContent=b.periode||"";
   let h="";
+  if(b.archive_reconstituee){
+    h+='<div class="archive-note">'+echapper(b.note_archive||"Archive reconstituée à partir des traces de publication disponibles.")+'</div>';
+  }
   if(reperes.length){
     h+='<section><div class="section-entete"><h2 class="section-titre">Les repères de la semaine</h2><p class="section-note">Les chiffres à retenir</p></div>'+
        '<div class="reperes">'+reperes.map(carteRepere).join("")+'</div></section>';
