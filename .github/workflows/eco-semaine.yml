@@ -8,7 +8,7 @@ on:
       - main
 
   schedule:
-    - cron: "17 9 * * 1"
+    - cron: "17 9 * 9-12 1"
       timezone: "Europe/Paris"
 
 permissions:
