@@ -2,7 +2,7 @@
   "periode": "Semaine du 7 au 13 septembre 2026",
   "publie": "7 septembre 2026",
   "archive_reconstituee": true,
-  "note_archive": "Archive reconstituée à partir des traces de publication GitHub disponibles. Les principaux repères et sujets sont conservés, mais les textes détaillés d’origine ne sont plus disponibles.",
+  "note_archive": "Archive reconstituée à partir des traces de publication et des sources officielles disponibles. Les titres correspondent aux sujets diffusés ; les explications courtes ont été reconstituées à partir des sources d’origine.",
   "sources": [
     "DG Trésor",
     "Eurostat",
@@ -41,33 +41,33 @@
   "breves": [
     {
       "titre": "Le numérique, principal facteur du décrochage de la productivité française par rapport aux États-Unis",
-      "resume": "",
+      "resume": "Entre 1997 et 2019, la productivité horaire a progressé en moyenne de 0,6 point par an plus vite aux États-Unis qu’en France. La DG Trésor attribue l’essentiel de cet écart aux secteurs producteurs et utilisateurs intensifs de technologies numériques.",
       "notion": "Productivité",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
       "source": "DG Trésor",
       "date": "",
-      "url": ""
+      "url": "https://www.tresor.economie.gouv.fr/Articles/2026/09/01/le-numerique-principal-facteur-du-decrochage-de-la-productivite-francaise-par-rapport-aux-etats-unis"
     },
     {
       "titre": "Un an du plan « Osez l’IA » : un premier bilan positif et une nouvelle étape pour accélérer l’adoption de l’IA dans les entreprises",
-      "resume": "",
+      "resume": "Un an après son lancement, le plan « Osez l’IA » a sensibilisé plus de 35 000 entreprises grâce à 615 ambassadeurs. L’objectif est d’accélérer l’adoption de l’IA, notamment dans les PME et ETI.",
       "notion": "Entreprises",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
       "source": "Ministère de l’Économie",
       "date": "",
-      "url": ""
+      "url": "https://www.economie.gouv.fr/actualites/un-du-plan-osez-lia-un-premier-bilan-positif-et-une-nouvelle-etape-pour-accelerer-ladoption-de-lia-dans-les-entreprises"
     },
     {
       "titre": "Ce qu’il faut savoir sur le diagnostic de performance énergétique (DPE)",
-      "resume": "",
+      "resume": "Le DPE estime la consommation énergétique et les émissions d’un logement. À partir du 1er janvier 2027, le coefficient de conversion de l’électricité évolue de 1,9 à 1,7, ce qui améliorera le classement de nombreux logements chauffés à l’électricité.",
       "notion": "Énergie",
       "theme": "Thème 3",
       "theme_titre": "Comprendre l’inflation",
       "source": "Ministère de l’Économie",
       "date": "",
-      "url": ""
+      "url": "https://www.economie.gouv.fr/particuliers/gerer-mon-argent/investir-dans-limmobilier/ce-quil-faut-savoir-sur-le-diagnostic-de-performance-energetique-dpe"
     }
   ]
 }
