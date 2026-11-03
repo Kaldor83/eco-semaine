@@ -1,0 +1,74 @@
+{
+  "periode": "Semaine du 21 au 27 septembre 2026",
+  "publie": "21 septembre 2026",
+  "archive_reconstituee": true,
+  "note_archive": "Archive reconstituée à partir des traces de publication GitHub disponibles. Les principaux repères et sujets sont conservés, mais les textes détaillés d’origine ne sont plus disponibles.",
+  "sources": [
+    "DG Trésor",
+    "Eurostat",
+    "INSEE",
+    "Ministère de l’Économie"
+  ],
+  "reperes": [
+    {
+      "chiffre": "2,4 %",
+      "unite": "inflation sur un an, France",
+      "titre": "Les prix à la consommation augmentent de 2,4 % sur un an en août 2026",
+      "explication": "L’inflation mesure l’évolution générale des prix.",
+      "notion": "Inflation",
+      "theme": "Thème 3",
+      "theme_titre": "Comprendre l’inflation",
+      "question": "",
+      "reponse": "",
+      "source": "INSEE",
+      "date": "",
+      "url": ""
+    },
+    {
+      "chiffre": "−0,1 %",
+      "unite": "production industrielle, zone euro",
+      "titre": "La production industrielle recule de 0,1 % dans la zone euro",
+      "explication": "La production renseigne sur le niveau d’activité des entreprises et de l’industrie.",
+      "notion": "Production",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "question": "",
+      "reponse": "",
+      "source": "Eurostat",
+      "date": "",
+      "url": ""
+    }
+  ],
+  "breves": [
+    {
+      "titre": "Changement climatique, transition écologique et croissance potentielle",
+      "resume": "",
+      "notion": "Productivité",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "source": "DG Trésor",
+      "date": "",
+      "url": ""
+    },
+    {
+      "titre": "Finances publiques : une situation dégradée, un redressement nécessaire",
+      "resume": "",
+      "notion": "Finances publiques",
+      "theme": "Thème 6",
+      "theme_titre": "Politiques économiques",
+      "source": "DG Trésor",
+      "date": "",
+      "url": ""
+    },
+    {
+      "titre": "Semaine de l’industrie : ouverture des labellisations pour la 15e édition",
+      "resume": "",
+      "notion": "Entreprises",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "source": "Ministère de l’Économie",
+      "date": "",
+      "url": ""
+    }
+  ]
+}
