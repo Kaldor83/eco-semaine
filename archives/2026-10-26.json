@@ -2,7 +2,7 @@
   "periode": "Semaine du 26 octobre au 1er novembre 2026",
   "publie": "26 octobre 2026",
   "archive_reconstituee": true,
-  "note_archive": "Archive reconstituée à partir des traces de publication GitHub disponibles. Les principaux repères et sujets sont conservés, mais les textes détaillés d’origine ne sont plus disponibles.",
+  "note_archive": "Archive reconstituée à partir des traces de publication et des sources officielles disponibles. Les titres correspondent aux sujets diffusés ; les explications courtes ont été reconstituées à partir des sources d’origine.",
   "sources": [
     "DG Trésor",
     "Eurostat",
@@ -55,33 +55,33 @@
   "breves": [
     {
       "titre": "Flash conjoncture France – Les services, principal moteur des exportations depuis 2019, soutiennent l’acquis de commerce extérieur en 2026",
-      "resume": "",
+      "resume": "Depuis 2019, les services expliquent près des quatre cinquièmes de la progression des exportations françaises en volume. Ils soutiennent encore positivement la contribution du commerce extérieur à la croissance en 2026.",
       "notion": "Commerce international",
       "theme": "Thème 5",
       "theme_titre": "Échanges internationaux et compétitivité",
       "source": "DG Trésor",
       "date": "",
-      "url": ""
+      "url": "https://www.tresor.economie.gouv.fr/Articles/2026/10/23/flash-conjoncture-france-les-services-principal-moteur-des-exportations-depuis-2019-soutiennent-l-acquis-de-commerce-exterieur-en-2026"
     },
     {
       "titre": "La réindustrialisation face aux impératifs de compétitivité, de décarbonation et de souveraineté",
-      "resume": "",
+      "resume": "Après un fort recul de l’industrie française entre 2000 et 2010, la DG Trésor souligne l’intérêt de soutiens ciblés aux secteurs stratégiques. La réindustrialisation dépend aussi de la compétitivité, des compétences, de la réglementation et de la fiscalité.",
       "notion": "Entreprises",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
       "source": "DG Trésor",
       "date": "",
-      "url": ""
+      "url": "https://www.tresor.economie.gouv.fr/Articles/2026/10/22/la-reindustrialisation-face-aux-imperatifs-de-competitivite-de-decarbonation-et-de-souverainete"
     },
     {
       "titre": "La French tech : un écosystème avec une ambition mondiale",
-      "resume": "",
+      "resume": "La French Tech compte environ 18 000 entreprises et 450 000 emplois directs. Au premier semestre 2026, les levées de fonds atteignent 4,9 milliards d’euros, avec une forte progression des start-up spécialisées dans l’intelligence artificielle.",
       "notion": "Entreprises",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
       "source": "Ministère de l’Économie",
       "date": "",
-      "url": ""
+      "url": "https://www.economie.gouv.fr/actualites/la-french-tech-un-ecosysteme-avec-une-ambition-mondiale"
     }
   ]
 }
