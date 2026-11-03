@@ -2,7 +2,7 @@
   "periode": "Semaine du 28 septembre au 4 octobre 2026",
   "publie": "28 septembre 2026",
   "archive_reconstituee": true,
-  "note_archive": "Archive reconstituée à partir des traces de publication GitHub disponibles. Les principaux repères et sujets sont conservés, mais les textes détaillés d’origine ne sont plus disponibles.",
+  "note_archive": "Archive reconstituée à partir des traces de publication et des sources officielles disponibles. Les titres correspondent aux sujets diffusés ; les explications courtes ont été reconstituées à partir des sources d’origine.",
   "sources": [
     "DG Trésor",
     "Ministère de l’Économie"
@@ -11,33 +11,33 @@
   "breves": [
     {
       "titre": "Marché du travail : quelles marges pour retrouver le chemin du plein emploi ?",
-      "resume": "",
+      "resume": "Après une nette amélioration depuis 2015, le marché du travail ralentit depuis mi-2023. Les marges de progression concernent notamment les jeunes, les seniors, les femmes et les peu qualifiés, avec des enjeux de compétences, mobilité et coût du travail.",
       "notion": "Emploi et chômage",
       "theme": "Thème 4",
       "theme_titre": "Emploi, chômage et salaires",
       "source": "DG Trésor",
       "date": "",
-      "url": ""
+      "url": "https://www.tresor.economie.gouv.fr/Articles/2026/09/24/marche-du-travail-quelles-marges-pour-retrouver-le-chemin-du-plein-emploi"
     },
     {
       "titre": "L’utilisation de l’intelligence artificielle se généralise dans les TPE et PME",
-      "resume": "",
+      "resume": "En 2026, 40 % des TPE et PME utilisent une solution d’intelligence artificielle, soit 14 points de plus en un an. Les usages portent notamment sur la génération de contenus, les assistants, l’analyse et l’automatisation.",
       "notion": "Entreprises",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
       "source": "Ministère de l’Économie",
       "date": "",
-      "url": ""
+      "url": "https://www.economie.gouv.fr/actualites/lutilisation-de-lintelligence-artificielle-se-generalise-dans-les-tpe-et-pme"
     },
     {
       "titre": "Contrôle des investissements étrangers, quel est le bilan pour 2025 ?",
-      "resume": "",
+      "resume": "En 2025, 418 dossiers d’investissements étrangers ont été déposés. Parmi les opérations contrôlées, près de la moitié des autorisations ont été assorties de conditions visant à protéger des activités, savoir-faire ou informations sensibles.",
       "notion": "Investissement",
       "theme": "Thème 2",
       "theme_titre": "Investir et financer les projets",
       "source": "Ministère de l’Économie",
       "date": "",
-      "url": ""
+      "url": "https://www.economie.gouv.fr/actualites/controle-des-investissements-etrangers-quel-est-le-bilan-pour-2025"
     }
   ]
 }
