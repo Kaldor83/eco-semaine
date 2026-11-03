@@ -18,8 +18,8 @@
       "notion": "Inflation",
       "theme": "Thème 3",
       "theme_titre": "Comprendre l’inflation",
-      "question": "",
-      "reponse": "",
+      "question": "Comment une demande très dynamique peut-elle provoquer de l’inflation ?",
+      "reponse": "Si la demande progresse plus vite que les capacités de production, les entreprises peuvent augmenter leurs prix face aux tensions sur les biens, services et facteurs de production.",
       "source": "INSEE",
       "date": "",
       "url": ""
@@ -32,8 +32,8 @@
       "notion": "Production",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
-      "question": "",
-      "reponse": "",
+      "question": "Quelle différence existe entre production et valeur ajoutée ?",
+      "reponse": "La production correspond à la valeur des biens et services produits. La valeur ajoutée retranche les consommations intermédiaires afin de mesurer la richesse créée.",
       "source": "Eurostat",
       "date": "",
       "url": ""
