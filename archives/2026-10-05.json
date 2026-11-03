@@ -18,8 +18,8 @@
       "notion": "Inflation",
       "theme": "Thème 3",
       "theme_titre": "Comprendre l’inflation",
-      "question": "",
-      "reponse": "",
+      "question": "Comment une demande très dynamique peut-elle provoquer de l’inflation ?",
+      "reponse": "Si la demande progresse plus vite que les capacités de production, les entreprises peuvent augmenter leurs prix.",
       "source": "Eurostat",
       "date": "",
       "url": ""
@@ -32,8 +32,8 @@
       "notion": "Emploi et chômage",
       "theme": "Thème 4",
       "theme_titre": "Emploi, chômage et salaires",
-      "question": "",
-      "reponse": "",
+      "question": "Pourquoi une croissance plus forte peut-elle réduire le chômage ?",
+      "reponse": "Si la demande augmente durablement, les entreprises peuvent accroître leur production et leurs besoins de travail.",
       "source": "Eurostat",
       "date": "",
       "url": ""
@@ -46,8 +46,8 @@
       "notion": "Consommation",
       "theme": "",
       "theme_titre": "",
-      "question": "",
-      "reponse": "",
+      "question": "Pourquoi une baisse de la consommation peut-elle rapidement affecter les entreprises ?",
+      "reponse": "Une baisse de la consommation réduit les ventes des entreprises, qui peuvent alors diminuer leur production, leurs investissements ou leurs recrutements.",
       "source": "INSEE",
       "date": "",
       "url": ""
