@@ -1,0 +1,88 @@
+{
+  "periode": "Semaine du 12 au 18 octobre 2026",
+  "publie": "12 octobre 2026",
+  "archive_reconstituee": true,
+  "note_archive": "Archive reconstituée à partir des traces de publication GitHub disponibles. Les principaux repères et sujets sont conservés, mais les textes détaillés d’origine ne sont plus disponibles.",
+  "sources": [
+    "DG Trésor",
+    "Eurostat",
+    "INSEE",
+    "Ministère de l’Économie"
+  ],
+  "reperes": [
+    {
+      "chiffre": "+0,1 %",
+      "unite": "volume du commerce de détail, zone euro",
+      "titre": "Le commerce de détail progresse de 0,1 % dans la zone euro",
+      "explication": "La consommation des ménages constitue une composante majeure de la demande.",
+      "notion": "Consommation",
+      "theme": "",
+      "theme_titre": "",
+      "question": "",
+      "reponse": "",
+      "source": "Eurostat",
+      "date": "",
+      "url": ""
+    },
+    {
+      "chiffre": "+0,3 %",
+      "unite": "production manufacturière, France",
+      "titre": "La production manufacturière rebondit de 0,3 % en août 2026",
+      "explication": "La production renseigne sur le niveau d’activité des entreprises et de l’industrie.",
+      "notion": "Production",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "question": "",
+      "reponse": "",
+      "source": "INSEE",
+      "date": "",
+      "url": ""
+    },
+    {
+      "chiffre": "3,8 %",
+      "unite": "inflation annuelle, zone euro",
+      "titre": "L’inflation annuelle atteint 3,8 % dans la zone euro",
+      "explication": "L’inflation mesure l’évolution générale des prix.",
+      "notion": "Inflation",
+      "theme": "Thème 3",
+      "theme_titre": "Comprendre l’inflation",
+      "question": "",
+      "reponse": "",
+      "source": "Eurostat",
+      "date": "",
+      "url": ""
+    }
+  ],
+  "breves": [
+    {
+      "titre": "Facturation électronique : trois entreprises sur quatre déjà engagées dans la réforme",
+      "resume": "",
+      "notion": "Entreprises",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "source": "Ministère de l’Économie",
+      "date": "",
+      "url": ""
+    },
+    {
+      "titre": "Publication du rapport économique, social et financier (RESF) 2027",
+      "resume": "",
+      "notion": "Finances publiques",
+      "theme": "Thème 6",
+      "theme_titre": "Politiques économiques",
+      "source": "DG Trésor",
+      "date": "",
+      "url": ""
+    },
+    {
+      "titre": "Bercy Vert : le nouveau bilan carbone de Bercy identifie les principaux leviers de transformation écologique",
+      "resume": "",
+      "notion": "Énergie",
+      "theme": "Thème 3",
+      "theme_titre": "Comprendre l’inflation",
+      "source": "Ministère de l’Économie",
+      "date": "",
+      "url": ""
+    }
+  ]
+}
