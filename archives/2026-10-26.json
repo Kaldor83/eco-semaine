@@ -17,8 +17,8 @@
       "notion": "Finances publiques",
       "theme": "Thème 6",
       "theme_titre": "Politiques économiques",
-      "question": "",
-      "reponse": "",
+      "question": "Quel est l’objectif principal d’une politique monétaire restrictive ?",
+      "reponse": "Elle vise généralement à ralentir la demande et le crédit afin de réduire les tensions inflationnistes.",
       "source": "Eurostat",
       "date": "",
       "url": ""
@@ -31,8 +31,8 @@
       "notion": "Inflation",
       "theme": "Thème 3",
       "theme_titre": "Comprendre l’inflation",
-      "question": "",
-      "reponse": "",
+      "question": "Comment une hausse des coûts de production peut-elle provoquer de l’inflation ?",
+      "reponse": "Les entreprises peuvent répercuter une partie de la hausse de leurs coûts dans leurs prix de vente.",
       "source": "Eurostat",
       "date": "",
       "url": ""
@@ -45,8 +45,8 @@
       "notion": "Production",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
-      "question": "",
-      "reponse": "",
+      "question": "Pourquoi une hausse de la production n’entraîne-t-elle pas toujours une hausse équivalente de la valeur ajoutée ?",
+      "reponse": "Parce que l’entreprise peut utiliser davantage de consommations intermédiaires. La richesse créée dépend de la valeur ajoutée, pas seulement du niveau de production.",
       "source": "Eurostat",
       "date": "",
       "url": ""
