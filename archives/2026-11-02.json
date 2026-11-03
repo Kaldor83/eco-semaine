@@ -1,0 +1,86 @@
+{
+  "periode": "Semaine du 2 au 8 novembre 2026",
+  "publie": "3 novembre 2026",
+  "sources": [
+    "DG Trésor",
+    "Eurostat",
+    "INSEE",
+    "Ministère de l’Économie"
+  ],
+  "reperes": [
+    {
+      "chiffre": "6,5 %",
+      "unite": "taux de chômage, zone euro",
+      "titre": "Le chômage s’établit à 6,5 % en zone euro",
+      "explication": "L’emploi et le chômage renseignent sur la situation du marché du travail. Ils influencent les revenus, la consommation et l’activité.",
+      "notion": "Emploi et chômage",
+      "theme": "Thème 4",
+      "theme_titre": "Emploi, chômage et salaires",
+      "question": "Pourquoi une croissance plus forte peut-elle réduire le chômage ?",
+      "reponse": "Si la demande augmente durablement, les entreprises peuvent accroître leur production et leurs besoins de travail.",
+      "source": "Eurostat",
+      "date": "30 octobre 2026",
+      "url": "https://ec.europa.eu/eurostat/product?code=3-30102026-bp"
+    },
+    {
+      "chiffre": "0,4 %",
+      "unite": "variation du PIB, zone euro",
+      "titre": "Le PIB progresse de 0,4 % en zone euro",
+      "explication": "La croissance mesure l’évolution de la production de biens et services. Ce repère permet de situer le rythme de l’activité économique.",
+      "notion": "Croissance",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "question": "Pourquoi distingue-t-on le PIB en valeur du PIB en volume ?",
+      "reponse": "Le PIB en valeur varie avec les quantités produites mais aussi avec les prix. Le PIB en volume neutralise l’effet des prix pour mesurer l’évolution réelle de la production.",
+      "source": "Eurostat",
+      "date": "30 octobre 2026",
+      "url": "https://ec.europa.eu/eurostat/product?code=2-30102026-ap"
+    },
+    {
+      "chiffre": "3,4 %",
+      "unite": "inflation, France",
+      "titre": "L’inflation remonte à 3,4 % en France",
+      "explication": "L’inflation mesure l’évolution générale des prix. Son rythme influence notamment le pouvoir d’achat et les coûts des entreprises.",
+      "notion": "Inflation",
+      "theme": "Thème 3",
+      "theme_titre": "Comprendre l’inflation",
+      "question": "Comment une demande très dynamique peut-elle provoquer de l’inflation ?",
+      "reponse": "Si la demande progresse plus vite que les capacités de production, les entreprises peuvent augmenter leurs prix.",
+      "source": "INSEE",
+      "date": "30 octobre 2026",
+      "url": "https://www.insee.fr/fr/statistiques/9107965"
+    }
+  ],
+  "breves": [
+    {
+      "titre": "Entreprises : vos principales échéances du mois",
+      "resume": "L’année est marquée par plusieurs dates clés pour les entreprises. Paiement de la TVA et de l’impôt sur les sociétés, déclaration sociale nominative… Pour vous aider à y voir plus clair, retrouvez les principales échéances fiscales et sociales du mois.",
+      "notion": "Entreprises",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "source": "Ministère de l’Économie",
+      "date": "27 octobre 2026",
+      "url": "https://www.economie.gouv.fr/entreprises/gerer-sa-fiscalite-et-ses-impots/limpot-sur-les-benefices-ir-et/entreprises-vos-principales-echeances-du-mois"
+    },
+    {
+      "titre": "Flash conjoncture France – Le PIB recule légèrement au 3e trimestre",
+      "resume": "Le PIB français se replie légèrement au 3e trimestre 2026 (−0,1 %, après +0,0 % au 2e trimestre), selon la première estimation des comptes nationaux trimestriels publiée par l’Insee.",
+      "notion": "Croissance",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "source": "DG Trésor",
+      "date": "30 octobre 2026",
+      "url": "https://www.tresor.economie.gouv.fr/Articles/2026/10/30/flash-conjoncture-france-le-pib-recule-legerement-au-3e-trimestre"
+    },
+    {
+      "titre": "Taxes sur les petits colis : comment ça marche ?",
+      "resume": "En 2026, des mesures douanières ont progressivement été mises en place : elles concernent les colis de faible valeur expédiés depuis les pays situés hors de l’Union européenne (UE).",
+      "notion": "Commerce international",
+      "theme": "Thème 5",
+      "theme_titre": "Échanges internationaux et compétitivité",
+      "source": "Ministère de l’Économie",
+      "date": "2 novembre 2026",
+      "url": "https://www.economie.gouv.fr/particuliers/mes-droits-conso/bien-consommer/taxes-sur-les-petits-colis-comment-ca-marche"
+    }
+  ]
+}
