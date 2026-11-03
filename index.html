@@ -171,15 +171,35 @@ function afficherBulletin(b){
   document.getElementById("signature").textContent=b.publie?"Bulletin établi le "+b.publie:"";
   document.getElementById("sourceInfo").textContent=b.sources?"Sources : "+b.sources.join(" · "):"";
 }
-async function chargerBulletin(url){
+async function chargerBulletin(url,anneeAttendue=null){
   try{
     afficherEtat("Lecture du bulletin…");
     const r=await fetch(url,{cache:"no-store"});
     if(!r.ok) throw new Error(url+" inaccessible");
-    afficherBulletin(await r.json());
+    const bulletin=await r.json();
+
+    if(anneeAttendue!==null){
+      const anneeBulletin=Number(bulletin.annee||0);
+      const periode=String(bulletin.periode||"");
+      if((anneeBulletin && anneeBulletin!==anneeAttendue) ||
+         (!anneeBulletin && !periode.includes(String(anneeAttendue)))){
+        document.getElementById("periode").textContent="Reprise de la veille";
+        document.getElementById("archivesBar").hidden=true;
+        document.getElementById("signature").textContent="";
+        document.getElementById("sourceInfo").textContent="";
+        document.getElementById("contenu").innerHTML=
+          '<div class="etat-saison"><strong>La veille économique reprend en septembre.</strong>'+
+          'Le premier bulletin de la nouvelle année sera publié lors de la prochaine actualisation hebdomadaire.</div>';
+        return false;
+      }
+    }
+
+    afficherBulletin(bulletin);
+    return true;
   }catch(e){
     console.error(e);
     afficherEtat("Le bulletin ne peut pas être chargé.");
+    return false;
   }
 }
 function dateParis(){
@@ -229,8 +249,10 @@ async function demarrer(){
     return;
   }
 
-  await chargerBulletin("actualites.json");
-  await chargerArchives(maintenant.annee);
+  const bulletinActuel=await chargerBulletin("actualites.json",maintenant.annee);
+  if(bulletinActuel){
+    await chargerArchives(maintenant.annee);
+  }
 }
 demarrer();
 </script>
