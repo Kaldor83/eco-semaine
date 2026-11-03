@@ -18,8 +18,8 @@
       "notion": "Croissance",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
-      "question": "",
-      "reponse": "",
+      "question": "Pourquoi distingue-t-on le PIB en valeur du PIB en volume ?",
+      "reponse": "Le PIB en valeur varie avec les quantités produites mais aussi avec les prix. Le PIB en volume neutralise l’effet des prix pour mesurer l’évolution réelle de la production.",
       "source": "Eurostat",
       "date": "",
       "url": ""
@@ -32,8 +32,8 @@
       "notion": "Production",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
-      "question": "",
-      "reponse": "",
+      "question": "Peut-on produire davantage sans utiliser davantage de travail ou de capital ?",
+      "reponse": "Oui, si la productivité augmente. Une meilleure organisation, l’innovation ou de nouveaux équipements peuvent permettre de produire davantage avec les mêmes ressources.",
       "source": "INSEE",
       "date": "",
       "url": ""
