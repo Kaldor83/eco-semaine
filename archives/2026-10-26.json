@@ -1,0 +1,87 @@
+{
+  "periode": "Semaine du 26 octobre au 1er novembre 2026",
+  "publie": "26 octobre 2026",
+  "archive_reconstituee": true,
+  "note_archive": "Archive reconstituée à partir des traces de publication GitHub disponibles. Les principaux repères et sujets sont conservés, mais les textes détaillés d’origine ne sont plus disponibles.",
+  "sources": [
+    "DG Trésor",
+    "Eurostat",
+    "Ministère de l’Économie"
+  ],
+  "reperes": [
+    {
+      "chiffre": "3,3 %",
+      "unite": "déficit public en % du PIB, zone euro",
+      "titre": "Le déficit public atteint 3,3 % du PIB dans la zone euro",
+      "explication": "Le déficit public mesure l’écart entre les recettes et les dépenses publiques.",
+      "notion": "Finances publiques",
+      "theme": "Thème 6",
+      "theme_titre": "Politiques économiques",
+      "question": "",
+      "reponse": "",
+      "source": "Eurostat",
+      "date": "",
+      "url": ""
+    },
+    {
+      "chiffre": "3,8 %",
+      "unite": "inflation annuelle, zone euro",
+      "titre": "L’inflation annuelle atteint 3,8 % dans la zone euro",
+      "explication": "L’inflation mesure l’évolution générale des prix.",
+      "notion": "Inflation",
+      "theme": "Thème 3",
+      "theme_titre": "Comprendre l’inflation",
+      "question": "",
+      "reponse": "",
+      "source": "Eurostat",
+      "date": "",
+      "url": ""
+    },
+    {
+      "chiffre": "−0,5 %",
+      "unite": "production industrielle, zone euro",
+      "titre": "La production industrielle recule de 0,5 % dans la zone euro",
+      "explication": "La production renseigne sur le niveau d’activité des entreprises et de l’industrie.",
+      "notion": "Production",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "question": "",
+      "reponse": "",
+      "source": "Eurostat",
+      "date": "",
+      "url": ""
+    }
+  ],
+  "breves": [
+    {
+      "titre": "Flash conjoncture France – Les services, principal moteur des exportations depuis 2019, soutiennent l’acquis de commerce extérieur en 2026",
+      "resume": "",
+      "notion": "Commerce international",
+      "theme": "Thème 5",
+      "theme_titre": "Échanges internationaux et compétitivité",
+      "source": "DG Trésor",
+      "date": "",
+      "url": ""
+    },
+    {
+      "titre": "La réindustrialisation face aux impératifs de compétitivité, de décarbonation et de souveraineté",
+      "resume": "",
+      "notion": "Entreprises",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "source": "DG Trésor",
+      "date": "",
+      "url": ""
+    },
+    {
+      "titre": "La French tech : un écosystème avec une ambition mondiale",
+      "resume": "",
+      "notion": "Entreprises",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "source": "Ministère de l’Économie",
+      "date": "",
+      "url": ""
+    }
+  ]
+}
