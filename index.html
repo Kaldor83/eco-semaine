@@ -64,6 +64,8 @@ header.tete{display:flex;justify-content:space-between;align-items:flex-end;gap:
 .breve-meta{margin-top:auto;padding-top:7px;font-family:var(--sans);font-size:10px;color:var(--encre-clair)}
 footer.pied{margin-top:18px;padding-top:9px;border-top:1px solid var(--trait);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;color:var(--encre-clair)}
 .etat{padding:30px 0;font-family:var(--sans);color:var(--encre-clair)}
+.etat-saison{padding:22px 0 8px;font-family:var(--sans);color:var(--encre-clair)}
+.etat-saison strong{display:block;margin-bottom:5px;color:var(--encre);font-size:13px}
 @media (max-width:900px){.reperes,.breves{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:620px){
   .page{padding:18px 14px 24px}.tete{align-items:flex-start!important;flex-direction:column;gap:6px!important}
@@ -180,12 +182,29 @@ async function chargerBulletin(url){
     afficherEtat("Le bulletin ne peut pas être chargé.");
   }
 }
-async function chargerArchives(){
+function dateParis(){
+  const parts=new Intl.DateTimeFormat("fr-FR",{
+    timeZone:"Europe/Paris",year:"numeric",month:"numeric",day:"numeric"
+  }).formatToParts(new Date());
+  const valeur=type=>Number(parts.find(p=>p.type===type)?.value||0);
+  return {annee:valeur("year"),mois:valeur("month"),jour:valeur("day")};
+}
+function afficherHorsSaison(){
+  document.getElementById("periode").textContent="Veille suspendue";
+  document.getElementById("archivesBar").hidden=true;
+  document.getElementById("signature").textContent="";
+  document.getElementById("sourceInfo").textContent="";
+  document.getElementById("contenu").innerHTML=
+    '<div class="etat-saison"><strong>La veille économique fonctionne de septembre à décembre.</strong>'+
+    'Elle reprendra automatiquement au 1er septembre. Les archives des années précédentes sont conservées par l’enseignant, mais ne sont pas affichées ici.</div>';
+}
+async function chargerArchives(anneeCourante){
   try{
     const r=await fetch("archives/index.json",{cache:"no-store"});
     if(!r.ok) return;
     const data=await r.json();
-    const archives=Array.isArray(data.archives)?data.archives:[];
+    const archives=(Array.isArray(data.archives)?data.archives:[])
+      .filter(a=>String(a.fichier||"").startsWith(String(anneeCourante)+"-"));
     if(!archives.length) return;
 
     const select=document.getElementById("archiveSelect");
@@ -203,8 +222,15 @@ async function chargerArchives(){
   }
 }
 async function demarrer(){
+  const maintenant=dateParis();
+
+  if(maintenant.mois<9 || maintenant.mois>12){
+    afficherHorsSaison();
+    return;
+  }
+
   await chargerBulletin("actualites.json");
-  await chargerArchives();
+  await chargerArchives(maintenant.annee);
 }
 demarrer();
 </script>
