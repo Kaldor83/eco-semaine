@@ -17,8 +17,8 @@
       "notion": "Inflation",
       "theme": "Thème 3",
       "theme_titre": "Comprendre l’inflation",
-      "question": "",
-      "reponse": "",
+      "question": "Pourquoi un ralentissement de l’inflation ne signifie-t-il pas que les prix baissent ?",
+      "reponse": "Les prix continuent d’augmenter, mais moins vite. Ils ne diminuent en moyenne que si le taux d’inflation devient négatif.",
       "source": "Eurostat",
       "date": "",
       "url": ""
@@ -31,8 +31,8 @@
       "notion": "Production",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
-      "question": "",
-      "reponse": "",
+      "question": "Quelle différence existe entre production et valeur ajoutée ?",
+      "reponse": "La production correspond à la valeur des biens et services produits. La valeur ajoutée retranche les consommations intermédiaires pour mesurer la richesse créée.",
       "source": "Eurostat",
       "date": "",
       "url": ""
@@ -45,8 +45,8 @@
       "notion": "Consommation",
       "theme": "",
       "theme_titre": "",
-      "question": "",
-      "reponse": "",
+      "question": "Pourquoi une baisse de la consommation peut-elle rapidement affecter les entreprises ?",
+      "reponse": "Une baisse de la consommation réduit les ventes des entreprises, qui peuvent alors diminuer leur production, leurs investissements ou leurs recrutements.",
       "source": "Eurostat",
       "date": "",
       "url": ""
