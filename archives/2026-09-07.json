@@ -17,8 +17,8 @@
       "notion": "Croissance",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
-      "question": "",
-      "reponse": "",
+      "question": "Pourquoi additionne-t-on les valeurs ajoutées plutôt que les chiffres d’affaires pour calculer le PIB ?",
+      "reponse": "Additionner les chiffres d’affaires compterait plusieurs fois les consommations intermédiaires. La valeur ajoutée mesure uniquement la richesse réellement créée par chaque producteur.",
       "source": "Eurostat",
       "date": "",
       "url": ""
@@ -31,8 +31,8 @@
       "notion": "Consommation",
       "theme": "",
       "theme_titre": "",
-      "question": "",
-      "reponse": "",
+      "question": "Pourquoi une baisse de la consommation peut-elle rapidement affecter les entreprises ?",
+      "reponse": "Une baisse de la consommation réduit les ventes des entreprises, qui peuvent alors diminuer leur production, leurs investissements ou leurs recrutements.",
       "source": "Eurostat",
       "date": "",
       "url": ""
