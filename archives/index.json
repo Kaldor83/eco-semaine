@@ -1,0 +1,44 @@
+{
+  "archives": [
+    {
+      "fichier": "2026-10-26.json",
+      "periode": "Semaine du 26 octobre au 1er novembre 2026",
+      "publie": "26 octobre 2026"
+    },
+    {
+      "fichier": "2026-10-19.json",
+      "periode": "Semaine du 19 au 25 octobre 2026",
+      "publie": "19 octobre 2026"
+    },
+    {
+      "fichier": "2026-10-12.json",
+      "periode": "Semaine du 12 au 18 octobre 2026",
+      "publie": "12 octobre 2026"
+    },
+    {
+      "fichier": "2026-10-05.json",
+      "periode": "Semaine du 5 au 11 octobre 2026",
+      "publie": "5 octobre 2026"
+    },
+    {
+      "fichier": "2026-09-28.json",
+      "periode": "Semaine du 28 septembre au 4 octobre 2026",
+      "publie": "28 septembre 2026"
+    },
+    {
+      "fichier": "2026-09-21.json",
+      "periode": "Semaine du 21 au 27 septembre 2026",
+      "publie": "21 septembre 2026"
+    },
+    {
+      "fichier": "2026-09-14.json",
+      "periode": "Semaine du 14 au 20 septembre 2026",
+      "publie": "14 septembre 2026"
+    },
+    {
+      "fichier": "2026-09-07.json",
+      "periode": "Semaine du 7 au 13 septembre 2026",
+      "publie": "7 septembre 2026"
+    }
+  ]
+}

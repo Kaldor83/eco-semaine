@@ -1,0 +1,73 @@
+{
+  "periode": "Semaine du 7 au 13 septembre 2026",
+  "publie": "7 septembre 2026",
+  "archive_reconstituee": true,
+  "note_archive": "Archive reconstituée à partir des traces de publication GitHub disponibles. Les principaux repères et sujets sont conservés, mais les textes détaillés d’origine ne sont plus disponibles.",
+  "sources": [
+    "DG Trésor",
+    "Eurostat",
+    "Ministère de l’Économie"
+  ],
+  "reperes": [
+    {
+      "chiffre": "+0,6 %",
+      "unite": "variation du PIB, zone euro",
+      "titre": "Le PIB progresse de 0,6 % dans la zone euro",
+      "explication": "La croissance mesure l’évolution de la production de biens et services. Ce repère permet de situer le rythme de l’activité économique.",
+      "notion": "Croissance",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "question": "",
+      "reponse": "",
+      "source": "Eurostat",
+      "date": "",
+      "url": ""
+    },
+    {
+      "chiffre": "−0,6 %",
+      "unite": "volume du commerce de détail, zone euro",
+      "titre": "Le commerce de détail recule de 0,6 % dans la zone euro",
+      "explication": "La consommation des ménages constitue une composante majeure de la demande. Son évolution peut soutenir ou freiner l’activité.",
+      "notion": "Consommation",
+      "theme": "",
+      "theme_titre": "",
+      "question": "",
+      "reponse": "",
+      "source": "Eurostat",
+      "date": "",
+      "url": ""
+    }
+  ],
+  "breves": [
+    {
+      "titre": "Le numérique, principal facteur du décrochage de la productivité française par rapport aux États-Unis",
+      "resume": "",
+      "notion": "Productivité",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "source": "DG Trésor",
+      "date": "",
+      "url": ""
+    },
+    {
+      "titre": "Un an du plan « Osez l’IA » : un premier bilan positif et une nouvelle étape pour accélérer l’adoption de l’IA dans les entreprises",
+      "resume": "",
+      "notion": "Entreprises",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "source": "Ministère de l’Économie",
+      "date": "",
+      "url": ""
+    },
+    {
+      "titre": "Ce qu’il faut savoir sur le diagnostic de performance énergétique (DPE)",
+      "resume": "",
+      "notion": "Énergie",
+      "theme": "Thème 3",
+      "theme_titre": "Comprendre l’inflation",
+      "source": "Ministère de l’Économie",
+      "date": "",
+      "url": ""
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "periode": "Semaine du 14 au 20 septembre 2026",
+  "publie": "14 septembre 2026",
+  "archive_reconstituee": true,
+  "note_archive": "Archive reconstituée à partir des traces de publication GitHub disponibles. Les principaux repères et sujets sont conservés, mais les textes détaillés d’origine ne sont plus disponibles.",
+  "sources": [
+    "DG Trésor",
+    "Eurostat",
+    "INSEE",
+    "Ministère de l’Économie"
+  ],
+  "reperes": [
+    {
+      "chiffre": "+0,6 %",
+      "unite": "variation du PIB, zone euro",
+      "titre": "Le PIB progresse de 0,6 % dans la zone euro",
+      "explication": "La croissance mesure l’évolution de la production de biens et services.",
+      "notion": "Croissance",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "question": "",
+      "reponse": "",
+      "source": "Eurostat",
+      "date": "",
+      "url": ""
+    },
+    {
+      "chiffre": "−0,8 %",
+      "unite": "production manufacturière, France",
+      "titre": "La production manufacturière recule de 0,8 % en juillet 2026",
+      "explication": "La production renseigne sur le niveau d’activité des entreprises et de l’industrie.",
+      "notion": "Production",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "question": "",
+      "reponse": "",
+      "source": "INSEE",
+      "date": "",
+      "url": ""
+    }
+  ],
+  "breves": [
+    {
+      "titre": "Changement climatique, transition écologique et croissance potentielle",
+      "resume": "",
+      "notion": "Productivité",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "source": "DG Trésor",
+      "date": "",
+      "url": ""
+    },
+    {
+      "titre": "Le Gouvernement prend des mesures d’économies de 1,3 milliard d’euros sur le budget 2026",
+      "resume": "",
+      "notion": "Finances publiques",
+      "theme": "Thème 6",
+      "theme_titre": "Politiques économiques",
+      "source": "Ministère de l’Économie",
+      "date": "",
+      "url": ""
+    },
+    {
+      "titre": "Flash Conjoncture Pays avancés - La croissance économique au Royaume-Uni a surpris à la hausse au 1er semestre",
+      "resume": "",
+      "notion": "Entreprises",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "source": "DG Trésor",
+      "date": "",
+      "url": ""
+    }
+  ]
+}

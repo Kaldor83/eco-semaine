@@ -1,0 +1,88 @@
+{
+  "periode": "Semaine du 5 au 11 octobre 2026",
+  "publie": "5 octobre 2026",
+  "archive_reconstituee": true,
+  "note_archive": "Archive reconstituée à partir des traces de publication GitHub disponibles. Les principaux repères et sujets sont conservés, mais les textes détaillés d’origine ne sont plus disponibles.",
+  "sources": [
+    "BCE",
+    "Eurostat",
+    "INSEE",
+    "Ministère de l’Économie"
+  ],
+  "reperes": [
+    {
+      "chiffre": "3,8 %",
+      "unite": "inflation annuelle, zone euro",
+      "titre": "L’inflation annuelle atteint 3,8 % dans la zone euro",
+      "explication": "L’inflation mesure l’évolution générale des prix.",
+      "notion": "Inflation",
+      "theme": "Thème 3",
+      "theme_titre": "Comprendre l’inflation",
+      "question": "",
+      "reponse": "",
+      "source": "Eurostat",
+      "date": "",
+      "url": ""
+    },
+    {
+      "chiffre": "6,4 %",
+      "unite": "taux de chômage, zone euro",
+      "titre": "Le chômage s’établit à 6,4 % dans la zone euro",
+      "explication": "Le taux de chômage renseigne sur la situation du marché du travail.",
+      "notion": "Emploi et chômage",
+      "theme": "Thème 4",
+      "theme_titre": "Emploi, chômage et salaires",
+      "question": "",
+      "reponse": "",
+      "source": "Eurostat",
+      "date": "",
+      "url": ""
+    },
+    {
+      "chiffre": "−0,5 %",
+      "unite": "consommation des ménages en biens, France",
+      "titre": "La consommation des ménages en biens recule de 0,5 % en août 2026",
+      "explication": "La consommation des ménages constitue une composante majeure de la demande.",
+      "notion": "Consommation",
+      "theme": "",
+      "theme_titre": "",
+      "question": "",
+      "reponse": "",
+      "source": "INSEE",
+      "date": "",
+      "url": ""
+    }
+  ],
+  "breves": [
+    {
+      "titre": "Entreprises : vos principales échéances du mois",
+      "resume": "",
+      "notion": "Entreprises",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "source": "Ministère de l’Économie",
+      "date": "",
+      "url": ""
+    },
+    {
+      "titre": "Decisions taken by the Governing Council of the ECB (in addition to decisions setting interest rates)",
+      "resume": "",
+      "notion": "Taux d’intérêt",
+      "theme": "Thème 2",
+      "theme_titre": "Investir et financer les projets",
+      "source": "BCE",
+      "date": "",
+      "url": ""
+    },
+    {
+      "titre": "Présentation du projet de budget pour 2027",
+      "resume": "",
+      "notion": "Investissement",
+      "theme": "Thème 2",
+      "theme_titre": "Investir et financer les projets",
+      "source": "Ministère de l’Économie",
+      "date": "",
+      "url": ""
+    }
+  ]
+}

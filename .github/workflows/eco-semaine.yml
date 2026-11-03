@@ -3,12 +3,16 @@ name: Actualiser L’éco de la semaine
 on:
   workflow_dispatch:
 
+  push:
+    branches:
+      - main
+
   schedule:
     - cron: "17 9 * * 1"
       timezone: "Europe/Paris"
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -38,6 +42,18 @@ jobs:
 
       - name: Générer le bulletin
         run: python update_actualites.py
+
+      - name: Archiver le bulletin dans le dépôt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add actualites.json archives/
+          if git diff --cached --quiet; then
+            echo "Aucune modification à archiver."
+          else
+            git commit -m "Archive bulletin $(date -u +'%Y-%m-%d') [skip ci]"
+            git push
+          fi
 
       - name: Configurer GitHub Pages
         uses: actions/configure-pages@v5

@@ -18,7 +18,12 @@ header.tete{display:flex;justify-content:space-between;align-items:flex-end;gap:
 .titre{margin:0;font-size:37px;line-height:1;font-weight:400;letter-spacing:-.02em}
 .titre em{font-style:italic;color:var(--sauge)}
 .periode{font-family:var(--sans);font-size:12px;color:var(--encre-clair);white-space:nowrap}
-.chapeau{margin:10px 0 17px;font-family:var(--sans);font-size:12.5px;color:var(--encre-clair)}
+.chapeau{margin:10px 0 10px;font-family:var(--sans);font-size:12.5px;color:var(--encre-clair)}
+.archives-bar{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin:0 0 17px;font-family:var(--sans);font-size:11px;color:var(--encre-clair)}
+.archives-bar[hidden]{display:none}
+.archives-bar label{font-weight:650}
+.archives-bar select{max-width:320px;padding:6px 8px;border:1px solid var(--trait);border-radius:6px;background:var(--carte);color:var(--encre);font:inherit}
+.archive-note{margin:0 0 16px;padding:9px 11px;border-left:3px solid var(--trait);background:rgba(111,139,115,.07);font-family:var(--sans);font-size:10.5px;line-height:1.35;color:var(--encre-clair)}
 .section-entete{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 0 8px}
 .section-titre{margin:0;font-family:var(--sans);font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sauge-fonce)}
 .section-note{margin:0;font-family:var(--sans);font-size:11px;color:var(--encre-clair)}
@@ -75,6 +80,13 @@ footer.pied{margin-top:18px;padding-top:9px;border-top:1px solid var(--trait);di
   </header>
 
   <p class="chapeau">Trois repères pour situer la conjoncture, trois brèves pour suivre l’actualité économique.</p>
+
+  <div class="archives-bar" id="archivesBar" hidden>
+    <label for="archiveSelect">Semaines précédentes</label>
+    <select id="archiveSelect">
+      <option value="actualites.json">Semaine actuelle</option>
+    </select>
+  </div>
 
   <main id="contenu"><div class="etat">Lecture du bulletin…</div></main>
 
@@ -141,6 +153,9 @@ function afficherBulletin(b){
   const reperes=b.reperes||[], breves=b.breves||[];
   document.getElementById("periode").textContent=b.periode||"";
   let h="";
+  if(b.archive_reconstituee){
+    h+='<div class="archive-note">'+echapper(b.note_archive||"Archive reconstituée à partir des traces de publication disponibles.")+'</div>';
+  }
   if(reperes.length){
     h+='<section><div class="section-entete"><h2 class="section-titre">Les repères de la semaine</h2><p class="section-note">Les chiffres à retenir</p></div>'+
        '<div class="reperes">'+reperes.map(carteRepere).join("")+'</div></section>';
@@ -154,12 +169,42 @@ function afficherBulletin(b){
   document.getElementById("signature").textContent=b.publie?"Bulletin établi le "+b.publie:"";
   document.getElementById("sourceInfo").textContent=b.sources?"Sources : "+b.sources.join(" · "):"";
 }
-async function demarrer(){
+async function chargerBulletin(url){
   try{
-    const r=await fetch("actualites.json",{cache:"no-store"});
-    if(!r.ok) throw new Error("actualites.json inaccessible");
+    afficherEtat("Lecture du bulletin…");
+    const r=await fetch(url,{cache:"no-store"});
+    if(!r.ok) throw new Error(url+" inaccessible");
     afficherBulletin(await r.json());
-  }catch(e){console.error(e);afficherEtat("Le bulletin ne peut pas être chargé.");}
+  }catch(e){
+    console.error(e);
+    afficherEtat("Le bulletin ne peut pas être chargé.");
+  }
+}
+async function chargerArchives(){
+  try{
+    const r=await fetch("archives/index.json",{cache:"no-store"});
+    if(!r.ok) return;
+    const data=await r.json();
+    const archives=Array.isArray(data.archives)?data.archives:[];
+    if(!archives.length) return;
+
+    const select=document.getElementById("archiveSelect");
+    archives.forEach(a=>{
+      const option=document.createElement("option");
+      option.value="archives/"+a.fichier;
+      option.textContent=a.periode||a.fichier;
+      select.appendChild(option);
+    });
+
+    document.getElementById("archivesBar").hidden=false;
+    select.addEventListener("change",()=>chargerBulletin(select.value));
+  }catch(e){
+    console.warn("Archives indisponibles",e);
+  }
+}
+async function demarrer(){
+  await chargerBulletin("actualites.json");
+  await chargerArchives();
 }
 demarrer();
 </script>

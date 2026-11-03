@@ -1,0 +1,87 @@
+{
+  "periode": "Semaine du 19 au 25 octobre 2026",
+  "publie": "19 octobre 2026",
+  "archive_reconstituee": true,
+  "note_archive": "Archive reconstituée à partir des traces de publication GitHub disponibles. Les principaux repères et sujets sont conservés, mais les textes détaillés d’origine ne sont plus disponibles.",
+  "sources": [
+    "DG Trésor",
+    "Eurostat",
+    "Ministère de l’Économie"
+  ],
+  "reperes": [
+    {
+      "chiffre": "3,8 %",
+      "unite": "inflation annuelle, zone euro",
+      "titre": "L’inflation annuelle atteint 3,8 % dans la zone euro",
+      "explication": "L’inflation mesure l’évolution générale des prix.",
+      "notion": "Inflation",
+      "theme": "Thème 3",
+      "theme_titre": "Comprendre l’inflation",
+      "question": "",
+      "reponse": "",
+      "source": "Eurostat",
+      "date": "",
+      "url": ""
+    },
+    {
+      "chiffre": "−0,5 %",
+      "unite": "production industrielle, zone euro",
+      "titre": "La production industrielle recule de 0,5 % dans la zone euro",
+      "explication": "La production renseigne sur le niveau d’activité des entreprises et de l’industrie.",
+      "notion": "Production",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "question": "",
+      "reponse": "",
+      "source": "Eurostat",
+      "date": "",
+      "url": ""
+    },
+    {
+      "chiffre": "+0,1 %",
+      "unite": "volume du commerce de détail, zone euro",
+      "titre": "Le commerce de détail progresse de 0,1 % dans la zone euro",
+      "explication": "La consommation des ménages constitue une composante majeure de la demande.",
+      "notion": "Consommation",
+      "theme": "",
+      "theme_titre": "",
+      "question": "",
+      "reponse": "",
+      "source": "Eurostat",
+      "date": "",
+      "url": ""
+    }
+  ],
+  "breves": [
+    {
+      "titre": "Micro-tendu le 20 octobre à l’issue du conseil des entreprises exceptionnel",
+      "resume": "",
+      "notion": "Entreprises",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "source": "Ministère de l’Économie",
+      "date": "",
+      "url": ""
+    },
+    {
+      "titre": "Participation du public sur la demande de permis de recherches de géothermie de Bois d’Arcy (Yvelines), à la société ENGIE Énergie Services SAS",
+      "resume": "",
+      "notion": "Énergie",
+      "theme": "Thème 3",
+      "theme_titre": "Comprendre l’inflation",
+      "source": "Ministère de l’Économie",
+      "date": "",
+      "url": ""
+    },
+    {
+      "titre": "Le financement des investissements dans les infrastructures de transport",
+      "resume": "",
+      "notion": "Investissement",
+      "theme": "Thème 2",
+      "theme_titre": "Investir et financer les projets",
+      "source": "DG Trésor",
+      "date": "",
+      "url": ""
+    }
+  ]
+}

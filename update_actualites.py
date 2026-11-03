@@ -31,6 +31,8 @@ import feedparser
 
 
 SORTIE = Path("actualites.json")
+ARCHIVES_DIR = Path("archives")
+INDEX_ARCHIVES = ARCHIVES_DIR / "index.json"
 AGE_MAX_JOURS_REPERES = 120
 AGE_MAX_JOURS_BREVES = 10
 NB_REPERES_MAX = 3
@@ -1353,6 +1355,44 @@ def choisir_breves(items):
     return choisis
 
 
+
+# ---------------------------------------------------------------------------
+# ARCHIVES
+# ---------------------------------------------------------------------------
+
+def archiver_bulletin(doc, now: datetime):
+    """Conserve une copie permanente du bulletin et construit l'index des semaines passées."""
+    date_locale = now.astimezone(FUSEAU_PARIS).date()
+    lundi = date_locale - timedelta(days=date_locale.weekday())
+
+    ARCHIVES_DIR.mkdir(exist_ok=True)
+    archive_path = ARCHIVES_DIR / f"{lundi.isoformat()}.json"
+    archive_path.write_text(
+        json.dumps(doc, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+    archives = []
+    for p in sorted(ARCHIVES_DIR.glob("*.json"), reverse=True):
+        if p.name == "index.json" or p == archive_path:
+            continue
+        try:
+            ancien = json.loads(p.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+
+        archives.append({
+            "fichier": p.name,
+            "periode": ancien.get("periode", p.stem),
+            "publie": ancien.get("publie", ""),
+        })
+
+    INDEX_ARCHIVES.write_text(
+        json.dumps({"archives": archives}, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
 # ---------------------------------------------------------------------------
 # SORTIE
 # ---------------------------------------------------------------------------
@@ -1380,6 +1420,8 @@ def main():
         json.dumps(doc, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+
+    archiver_bulletin(doc, now)
 
     print(f"[OK] {len(reperes)} repère(s), {len(breves)} brève(s)")
 
