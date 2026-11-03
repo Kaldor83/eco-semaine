@@ -1,0 +1,43 @@
+{
+  "periode": "Semaine du 28 septembre au 4 octobre 2026",
+  "publie": "28 septembre 2026",
+  "archive_reconstituee": true,
+  "note_archive": "Archive reconstituée à partir des traces de publication GitHub disponibles. Les principaux repères et sujets sont conservés, mais les textes détaillés d’origine ne sont plus disponibles.",
+  "sources": [
+    "DG Trésor",
+    "Ministère de l’Économie"
+  ],
+  "reperes": [],
+  "breves": [
+    {
+      "titre": "Marché du travail : quelles marges pour retrouver le chemin du plein emploi ?",
+      "resume": "",
+      "notion": "Emploi et chômage",
+      "theme": "Thème 4",
+      "theme_titre": "Emploi, chômage et salaires",
+      "source": "DG Trésor",
+      "date": "",
+      "url": ""
+    },
+    {
+      "titre": "L’utilisation de l’intelligence artificielle se généralise dans les TPE et PME",
+      "resume": "",
+      "notion": "Entreprises",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "source": "Ministère de l’Économie",
+      "date": "",
+      "url": ""
+    },
+    {
+      "titre": "Contrôle des investissements étrangers, quel est le bilan pour 2025 ?",
+      "resume": "",
+      "notion": "Investissement",
+      "theme": "Thème 2",
+      "theme_titre": "Investir et financer les projets",
+      "source": "Ministère de l’Économie",
+      "date": "",
+      "url": ""
+    }
+  ]
+}
