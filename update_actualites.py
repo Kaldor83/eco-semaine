@@ -1425,6 +1425,7 @@ def main():
         )
 
     doc = {
+        "annee": now.astimezone(FUSEAU_PARIS).year,
         "periode": periode(now),
         "publie": date_fr(now),
         "sources": sorted({x.source for x in reperes + breves}),
