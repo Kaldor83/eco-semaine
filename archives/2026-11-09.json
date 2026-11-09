@@ -1,0 +1,87 @@
+{
+  "annee": 2026,
+  "periode": "Semaine du 9 au 15 novembre 2026",
+  "publie": "9 novembre 2026",
+  "sources": [
+    "DG Trésor",
+    "Eurostat",
+    "INSEE",
+    "Ministère de l’Économie"
+  ],
+  "reperes": [
+    {
+      "chiffre": "0,7 %",
+      "unite": "évolution de la consommation, zone euro",
+      "titre": "La consommation progresse de 0,7 % en zone euro",
+      "explication": "La consommation des ménages constitue une composante majeure de la demande. Son évolution peut soutenir ou freiner l’activité.",
+      "notion": "Consommation",
+      "theme": "",
+      "theme_titre": "",
+      "question": "Pourquoi une baisse de la consommation peut-elle rapidement affecter les entreprises ?",
+      "reponse": "Une baisse de la consommation réduit les ventes des entreprises, qui peuvent alors diminuer leur production, leurs investissements ou leurs recrutements.",
+      "source": "Eurostat",
+      "date": "6 novembre 2026",
+      "url": "https://ec.europa.eu/eurostat/product?code=4-06112026-ap"
+    },
+    {
+      "chiffre": "0,5 %",
+      "unite": "évolution de la production, France",
+      "titre": "La production industrielle progresse de 0,5 % en France",
+      "explication": "La production renseigne sur l’activité réalisée dans les différents secteurs. Ses variations donnent une indication sur la conjoncture.",
+      "notion": "Production",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "question": "Comment une entreprise peut-elle produire davantage avec les mêmes ressources ?",
+      "reponse": "Elle peut améliorer sa productivité grâce à une meilleure organisation, de nouveaux équipements, des technologies ou des compétences plus efficaces.",
+      "source": "INSEE",
+      "date": "5 novembre 2026",
+      "url": "https://www.insee.fr/fr/statistiques/9119425"
+    },
+    {
+      "chiffre": "4,0 %",
+      "unite": "inflation, zone euro",
+      "titre": "L’inflation remonte à 4,0 % en zone euro",
+      "explication": "L’inflation mesure l’évolution générale des prix. Son rythme influence notamment le pouvoir d’achat et les coûts des entreprises.",
+      "notion": "Inflation",
+      "theme": "Thème 3",
+      "theme_titre": "Comprendre l’inflation",
+      "question": "Quelle différence existe entre inflation et hausse du prix d’un seul produit ?",
+      "reponse": "L’inflation correspond à une hausse générale et durable du niveau des prix. La hausse isolée d’un produit ne suffit donc pas à caractériser l’inflation.",
+      "source": "Eurostat",
+      "date": "4 novembre 2026",
+      "url": "https://ec.europa.eu/eurostat/product?code=2-04112026-ap"
+    }
+  ],
+  "breves": [
+    {
+      "titre": "Électrifier les usages, anticiper la sortie du gaz : deux faces de la transition énergétique française",
+      "resume": "L’électrification constitue le principal levier de décarbonation de l’économie française. En 2024, l’électricité représente 26,5 % de la consommation d’énergie finale en France, et doit s’élever à 38 % en 2035.",
+      "notion": "Énergie",
+      "theme": "Thème 3",
+      "theme_titre": "Comprendre l’inflation",
+      "source": "DG Trésor",
+      "date": "5 novembre 2026",
+      "url": "https://www.tresor.economie.gouv.fr/Articles/2026/11/05/electrifier-les-usages-anticiper-la-sortie-du-gaz-deux-faces-de-la-transition-energetique-francaise"
+    },
+    {
+      "titre": "Salon Paris pour l'emploi : découvrez les opportunités professionnelles des ministères économiques et financiers",
+      "resume": "Pour sa 24e édition, le salon Paris pour l’emploi se tiendra place de la Concorde à Paris les jeudi 5 et vendredi 6 novembre 2026.",
+      "notion": "Emploi et chômage",
+      "theme": "Thème 4",
+      "theme_titre": "Emploi, chômage et salaires",
+      "source": "Ministère de l’Économie",
+      "date": "3 novembre 2026",
+      "url": "https://www.economie.gouv.fr/actualites/salon-paris-pour-lemploi-decouvrez-les-opportunites-professionnelles-des-ministeres-economiques-et-financiers"
+    },
+    {
+      "titre": "Mission temporaire sur l’attractivité de la France, avec un focus géographique sur l’Asie et un focus sectoriel sur les data centers",
+      "resume": "Remis le 29 août 2026 au Gouvernement, par la députée de Paris Astrid Panosyan-Bouvet, ce rapport parlementaire est consacré à l’attractivité économique de la France.",
+      "notion": "Croissance",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "source": "Ministère de l’Économie",
+      "date": "6 novembre 2026",
+      "url": "https://www.economie.gouv.fr/actualites/mission-temporaire-sur-lattractivite-de-la-france-avec-un-focus-geographique-sur-lasie-et-un-focus-sectoriel-sur-les-data-centers"
+    }
+  ]
+}
