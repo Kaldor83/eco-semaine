@@ -1,0 +1,77 @@
+{
+  "annee": 2026,
+  "periode": "Semaine du 16 au 22 novembre 2026",
+  "publie": "16 novembre 2026",
+  "sources": [
+    "BCE",
+    "Eurostat",
+    "INSEE",
+    "Ministère de l’Économie"
+  ],
+  "reperes": [
+    {
+      "chiffre": "0,2 %",
+      "unite": "évolution de la production, zone euro",
+      "titre": "La production industrielle progresse de 0,2 % en zone euro",
+      "explication": "La production renseigne sur l’activité réalisée dans les différents secteurs. Ses variations donnent une indication sur la conjoncture.",
+      "notion": "Production",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "question": "Quelle différence existe entre production et valeur ajoutée ?",
+      "reponse": "La production correspond à la valeur des biens et services produits. La valeur ajoutée retranche les consommations intermédiaires pour mesurer la richesse créée.",
+      "source": "Eurostat",
+      "date": "16 novembre 2026",
+      "url": "https://ec.europa.eu/eurostat/product?code=4-16112026-ap"
+    },
+    {
+      "chiffre": "0,4 %",
+      "unite": "variation du PIB, zone euro",
+      "titre": "Le PIB est stable en zone euro",
+      "explication": "La croissance mesure l’évolution de la production de biens et services. Ce repère permet de situer le rythme de l’activité économique.",
+      "notion": "Croissance",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "question": "Une hausse du PIB signifie-t-elle nécessairement une hausse du bien-être ?",
+      "reponse": "Non. Le PIB mesure la production, mais pas directement la qualité de vie, les inégalités, la répartition des revenus ou les effets environnementaux.",
+      "source": "Eurostat",
+      "date": "13 novembre 2026",
+      "url": "https://ec.europa.eu/eurostat/product?code=2-13112026-ap"
+    },
+    {
+      "chiffre": "3,4 %",
+      "unite": "inflation, France",
+      "titre": "L’inflation remonte à 3,4 % en France",
+      "explication": "L’inflation mesure l’évolution générale des prix. Son rythme influence notamment le pouvoir d’achat et les coûts des entreprises.",
+      "notion": "Inflation",
+      "theme": "Thème 3",
+      "theme_titre": "Comprendre l’inflation",
+      "question": "Pourquoi un ralentissement de l’inflation ne signifie-t-il pas que les prix baissent ?",
+      "reponse": "Les prix continuent d’augmenter, mais moins vite. Ils ne diminuent en moyenne que si le taux d’inflation devient négatif.",
+      "source": "INSEE",
+      "date": "13 novembre 2026",
+      "url": "https://www.insee.fr/fr/statistiques/9131332"
+    }
+  ],
+  "breves": [
+    {
+      "titre": "Insertion professionnelle : toutes les aides pour les personnes en situation de handicap",
+      "resume": "Vous êtes en situation de handicap et occupez un poste ou êtes à la recherche d’un emploi ?",
+      "notion": "Emploi et chômage",
+      "theme": "Thème 4",
+      "theme_titre": "Emploi, chômage et salaires",
+      "source": "Ministère de l’Économie",
+      "date": "13 novembre 2026",
+      "url": "https://www.economie.gouv.fr/particuliers/vie-en-entreprise/insertion-professionnelle-toutes-les-aides-pour-les-personnes-en-situation-de-handicap"
+    },
+    {
+      "titre": "Philip R. Lane: The science and practice of monetary policy communication: the ECB experience",
+      "resume": "",
+      "notion": "Taux d’intérêt",
+      "theme": "Thème 2",
+      "theme_titre": "Investir et financer les projets",
+      "source": "BCE",
+      "date": "10 novembre 2026",
+      "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261110_1~9725b7aa07.en.html"
+    }
+  ]
+}

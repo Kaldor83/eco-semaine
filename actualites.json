@@ -1,87 +1,77 @@
 {
   "annee": 2026,
-  "periode": "Semaine du 9 au 15 novembre 2026",
-  "publie": "9 novembre 2026",
+  "periode": "Semaine du 16 au 22 novembre 2026",
+  "publie": "16 novembre 2026",
   "sources": [
-    "DG Trésor",
+    "BCE",
     "Eurostat",
     "INSEE",
     "Ministère de l’Économie"
   ],
   "reperes": [
     {
-      "chiffre": "0,7 %",
-      "unite": "évolution de la consommation, zone euro",
-      "titre": "La consommation progresse de 0,7 % en zone euro",
-      "explication": "La consommation des ménages constitue une composante majeure de la demande. Son évolution peut soutenir ou freiner l’activité.",
-      "notion": "Consommation",
-      "theme": "",
-      "theme_titre": "",
-      "question": "Pourquoi une baisse de la consommation peut-elle rapidement affecter les entreprises ?",
-      "reponse": "Une baisse de la consommation réduit les ventes des entreprises, qui peuvent alors diminuer leur production, leurs investissements ou leurs recrutements.",
-      "source": "Eurostat",
-      "date": "6 novembre 2026",
-      "url": "https://ec.europa.eu/eurostat/product?code=4-06112026-ap"
-    },
-    {
-      "chiffre": "0,5 %",
-      "unite": "évolution de la production, France",
-      "titre": "La production industrielle progresse de 0,5 % en France",
+      "chiffre": "0,2 %",
+      "unite": "évolution de la production, zone euro",
+      "titre": "La production industrielle progresse de 0,2 % en zone euro",
       "explication": "La production renseigne sur l’activité réalisée dans les différents secteurs. Ses variations donnent une indication sur la conjoncture.",
       "notion": "Production",
       "theme": "Thème 1",
       "theme_titre": "Produire et mesurer la richesse",
-      "question": "Comment une entreprise peut-elle produire davantage avec les mêmes ressources ?",
-      "reponse": "Elle peut améliorer sa productivité grâce à une meilleure organisation, de nouveaux équipements, des technologies ou des compétences plus efficaces.",
-      "source": "INSEE",
-      "date": "5 novembre 2026",
-      "url": "https://www.insee.fr/fr/statistiques/9119425"
+      "question": "Quelle différence existe entre production et valeur ajoutée ?",
+      "reponse": "La production correspond à la valeur des biens et services produits. La valeur ajoutée retranche les consommations intermédiaires pour mesurer la richesse créée.",
+      "source": "Eurostat",
+      "date": "16 novembre 2026",
+      "url": "https://ec.europa.eu/eurostat/product?code=4-16112026-ap"
     },
     {
-      "chiffre": "4,0 %",
-      "unite": "inflation, zone euro",
-      "titre": "L’inflation remonte à 4,0 % en zone euro",
+      "chiffre": "0,4 %",
+      "unite": "variation du PIB, zone euro",
+      "titre": "Le PIB est stable en zone euro",
+      "explication": "La croissance mesure l’évolution de la production de biens et services. Ce repère permet de situer le rythme de l’activité économique.",
+      "notion": "Croissance",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "question": "Une hausse du PIB signifie-t-elle nécessairement une hausse du bien-être ?",
+      "reponse": "Non. Le PIB mesure la production, mais pas directement la qualité de vie, les inégalités, la répartition des revenus ou les effets environnementaux.",
+      "source": "Eurostat",
+      "date": "13 novembre 2026",
+      "url": "https://ec.europa.eu/eurostat/product?code=2-13112026-ap"
+    },
+    {
+      "chiffre": "3,4 %",
+      "unite": "inflation, France",
+      "titre": "L’inflation remonte à 3,4 % en France",
       "explication": "L’inflation mesure l’évolution générale des prix. Son rythme influence notamment le pouvoir d’achat et les coûts des entreprises.",
       "notion": "Inflation",
       "theme": "Thème 3",
       "theme_titre": "Comprendre l’inflation",
-      "question": "Quelle différence existe entre inflation et hausse du prix d’un seul produit ?",
-      "reponse": "L’inflation correspond à une hausse générale et durable du niveau des prix. La hausse isolée d’un produit ne suffit donc pas à caractériser l’inflation.",
-      "source": "Eurostat",
-      "date": "4 novembre 2026",
-      "url": "https://ec.europa.eu/eurostat/product?code=2-04112026-ap"
+      "question": "Pourquoi un ralentissement de l’inflation ne signifie-t-il pas que les prix baissent ?",
+      "reponse": "Les prix continuent d’augmenter, mais moins vite. Ils ne diminuent en moyenne que si le taux d’inflation devient négatif.",
+      "source": "INSEE",
+      "date": "13 novembre 2026",
+      "url": "https://www.insee.fr/fr/statistiques/9131332"
     }
   ],
   "breves": [
     {
-      "titre": "Électrifier les usages, anticiper la sortie du gaz : deux faces de la transition énergétique française",
-      "resume": "L’électrification constitue le principal levier de décarbonation de l’économie française. En 2024, l’électricité représente 26,5 % de la consommation d’énergie finale en France, et doit s’élever à 38 % en 2035.",
-      "notion": "Énergie",
-      "theme": "Thème 3",
-      "theme_titre": "Comprendre l’inflation",
-      "source": "DG Trésor",
-      "date": "5 novembre 2026",
-      "url": "https://www.tresor.economie.gouv.fr/Articles/2026/11/05/electrifier-les-usages-anticiper-la-sortie-du-gaz-deux-faces-de-la-transition-energetique-francaise"
-    },
-    {
-      "titre": "Salon Paris pour l'emploi : découvrez les opportunités professionnelles des ministères économiques et financiers",
-      "resume": "Pour sa 24e édition, le salon Paris pour l’emploi se tiendra place de la Concorde à Paris les jeudi 5 et vendredi 6 novembre 2026.",
+      "titre": "Insertion professionnelle : toutes les aides pour les personnes en situation de handicap",
+      "resume": "Vous êtes en situation de handicap et occupez un poste ou êtes à la recherche d’un emploi ?",
       "notion": "Emploi et chômage",
       "theme": "Thème 4",
       "theme_titre": "Emploi, chômage et salaires",
       "source": "Ministère de l’Économie",
-      "date": "3 novembre 2026",
-      "url": "https://www.economie.gouv.fr/actualites/salon-paris-pour-lemploi-decouvrez-les-opportunites-professionnelles-des-ministeres-economiques-et-financiers"
+      "date": "13 novembre 2026",
+      "url": "https://www.economie.gouv.fr/particuliers/vie-en-entreprise/insertion-professionnelle-toutes-les-aides-pour-les-personnes-en-situation-de-handicap"
     },
     {
-      "titre": "Mission temporaire sur l’attractivité de la France, avec un focus géographique sur l’Asie et un focus sectoriel sur les data centers",
-      "resume": "Remis le 29 août 2026 au Gouvernement, par la députée de Paris Astrid Panosyan-Bouvet, ce rapport parlementaire est consacré à l’attractivité économique de la France.",
-      "notion": "Croissance",
-      "theme": "Thème 1",
-      "theme_titre": "Produire et mesurer la richesse",
-      "source": "Ministère de l’Économie",
-      "date": "6 novembre 2026",
-      "url": "https://www.economie.gouv.fr/actualites/mission-temporaire-sur-lattractivite-de-la-france-avec-un-focus-geographique-sur-lasie-et-un-focus-sectoriel-sur-les-data-centers"
+      "titre": "Philip R. Lane: The science and practice of monetary policy communication: the ECB experience",
+      "resume": "",
+      "notion": "Taux d’intérêt",
+      "theme": "Thème 2",
+      "theme_titre": "Investir et financer les projets",
+      "source": "BCE",
+      "date": "10 novembre 2026",
+      "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261110_1~9725b7aa07.en.html"
     }
   ]
 }
