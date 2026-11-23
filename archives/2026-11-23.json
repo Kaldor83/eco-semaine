@@ -1,0 +1,86 @@
+{
+  "annee": 2026,
+  "periode": "Semaine du 23 au 29 novembre 2026",
+  "publie": "23 novembre 2026",
+  "sources": [
+    "DG Trésor",
+    "Eurostat",
+    "Ministère de l’Économie"
+  ],
+  "reperes": [
+    {
+      "chiffre": "4,0 %",
+      "unite": "inflation, zone euro",
+      "titre": "L’inflation remonte à 4,0 % en zone euro",
+      "explication": "L’inflation mesure l’évolution générale des prix. Son rythme influence notamment le pouvoir d’achat et les coûts des entreprises.",
+      "notion": "Inflation",
+      "theme": "Thème 3",
+      "theme_titre": "Comprendre l’inflation",
+      "question": "Comment une hausse des coûts de production peut-elle provoquer de l’inflation ?",
+      "reponse": "Les entreprises peuvent répercuter une partie de la hausse de leurs coûts dans leurs prix de vente.",
+      "source": "Eurostat",
+      "date": "18 novembre 2026",
+      "url": "https://ec.europa.eu/eurostat/product?code=2-18112026-ap"
+    },
+    {
+      "chiffre": "0,2 %",
+      "unite": "évolution de la production, zone euro",
+      "titre": "La production industrielle progresse de 0,2 % en zone euro",
+      "explication": "La production renseigne sur l’activité réalisée dans les différents secteurs. Ses variations donnent une indication sur la conjoncture.",
+      "notion": "Production",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "question": "Pourquoi une hausse de la production n’entraîne-t-elle pas toujours une hausse équivalente de la valeur ajoutée ?",
+      "reponse": "Parce que l’entreprise peut utiliser davantage de consommations intermédiaires. La richesse créée dépend de la valeur ajoutée, pas seulement du niveau de production.",
+      "source": "Eurostat",
+      "date": "16 novembre 2026",
+      "url": "https://ec.europa.eu/eurostat/product?code=4-16112026-ap"
+    },
+    {
+      "chiffre": "0,4 %",
+      "unite": "variation du PIB, zone euro",
+      "titre": "Le PIB est stable en zone euro",
+      "explication": "La croissance mesure l’évolution de la production de biens et services. Ce repère permet de situer le rythme de l’activité économique.",
+      "notion": "Croissance",
+      "theme": "Thème 1",
+      "theme_titre": "Produire et mesurer la richesse",
+      "question": "Quelle différence faut-il faire entre le PIB et la croissance économique ?",
+      "reponse": "Le PIB mesure la richesse produite sur une période. La croissance mesure l’évolution du PIB en volume entre deux périodes.",
+      "source": "Eurostat",
+      "date": "13 novembre 2026",
+      "url": "https://ec.europa.eu/eurostat/product?code=2-13112026-ap"
+    }
+  ],
+  "breves": [
+    {
+      "titre": "La politique industrielle des technologies de la transition écologique",
+      "resume": "Les technologies dites propres permettent de réussir la transition écologique, de réduire les dépendances aux importations d’énergies fossiles et de renforcer la souveraineté énergétique.",
+      "notion": "Énergie",
+      "theme": "Thème 3",
+      "theme_titre": "Comprendre l’inflation",
+      "source": "DG Trésor",
+      "date": "20 novembre 2026",
+      "url": "https://www.tresor.economie.gouv.fr/Articles/2026/11/20/la-politique-industrielle-des-technologies-de-la-transition-ecologique"
+    },
+    {
+      "titre": "Insertion professionnelle : toutes les aides pour les personnes en situation de handicap",
+      "resume": "Vous êtes en situation de handicap et occupez un poste ou êtes à la recherche d’un emploi ?",
+      "notion": "Emploi et chômage",
+      "theme": "Thème 4",
+      "theme_titre": "Emploi, chômage et salaires",
+      "source": "Ministère de l’Économie",
+      "date": "23 novembre 2026",
+      "url": "https://www.economie.gouv.fr/particuliers/vie-en-entreprise/insertion-professionnelle-toutes-les-aides-pour-les-personnes-en-situation-de-handicap"
+    },
+    {
+      "titre": "National Conveyor et renforcement du partenariat franco-jordanien : retour sur la visite de Nicolas Forissier en Jordanie (18-20 novembre 2026)",
+      "resume": "Du 18 au 20 novembre 2026, Nicolas Forissier, ministre délégué chargé du Commerce extérieur et de l’Attractivité, s’est rendu en Jordanie pour la première visite ministérielle consacrée aux enjeux économiques depuis 2020.",
+      "notion": "Commerce international",
+      "theme": "Thème 5",
+      "theme_titre": "Échanges internationaux et compétitivité",
+      "source": "DG Trésor",
+      "date": "23 novembre 2026",
+      "url": "https://www.tresor.economie.gouv.fr/Articles/2026/11/18/national-conveyor-et-renforcement-du-partenariat-franco-jordanien-retour-sur-la-visite-de-nicolas-forissier-en-jordanie-18-20-novembre-2026"
+    }
+  ]
+}
